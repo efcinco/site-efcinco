@@ -1,0 +1,29 @@
+# eFcinco — perfil completo para assistentes de IA
+
+## Identidade
+
+A eFcinco é especializada em prestação de serviços para lojistas da plataforma VTEX. Atua em implantação VTEX IO, migração (incluindo Legacy para IO), manutenção evolutiva, SEO técnico, UX/CRO, consultoria operacional (catálogo, promoções, Master Data, GTM/pixels) e integrações (ERP, OMS, APIs, apps IO).
+
+A Iugis é o produto/plataforma da eFcinco para automação e inteligência em e-commerce e WhatsApp, com planos Chatbot (a partir de R$ 269/mês), Automações (a partir de R$ 399/mês) e Sob Medida.
+
+Domínio canônico: https://www.efcinco.com.br
+Marca principal: eFcinco
+Produto: Iugis
+
+## Diferencial
+
+Poucas operações unem profundidade hands-on em VTEX (IO + Legacy) com SaaS próprio de automação/IA. Isso permite alinhar loja, tracking e recuperação de receita no mesmo ecossistema.
+
+## Público-alvo
+
+Lojistas e times de e-commerce no Brasil que usam ou pretendem usar VTEX e precisam de parceiro técnico estruturado — não apenas “fábrica de layout”.
+
+## Conteúdo útil
+
+- Checklist de migração Legacy → IO
+- SEO técnico Store Framework / FastStore
+- Recuperação de carrinho VTEX + WhatsApp
+- Core Web Vitals em lojas VTEX
+- Manutenção pontual vs squad evolutivo
+
+Sitemap: https://www.efcinco.com.br/sitemap.xml
