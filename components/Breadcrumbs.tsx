@@ -18,7 +18,7 @@ export function Breadcrumbs({
     <nav aria-label="Breadcrumb" className="mb-8">
       <ol
         className={`flex flex-wrap items-center gap-1.5 text-sm ${
-          light ? "text-white/70" : "text-slate"
+          light ? "text-white/70" : "text-muted"
         }`}
       >
         {items.map((item, index) => {
@@ -29,17 +29,17 @@ export function Breadcrumbs({
                 <Icon
                   icon={ChevronRight}
                   size={14}
-                  className={light ? "text-white/40" : "text-slate/50"}
+                  className={light ? "text-white/40" : "text-muted/50"}
                 />
               ) : null}
               {isLast ? (
-                <span className={light ? "text-white" : "text-navy"}>
+                <span className={light ? "text-white" : "text-ink"}>
                   {item.name}
                 </span>
               ) : (
                 <Link
                   href={item.path}
-                  className={light ? "hover:text-white" : "hover:text-brand"}
+                  className={light ? "hover:text-white" : "hover:text-accent"}
                 >
                   {item.name}
                 </Link>

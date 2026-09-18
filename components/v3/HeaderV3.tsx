@@ -4,11 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ChevronDown,
-  Heart,
+  ClipboardList,
+  Globe,
   Menu,
-  Phone,
+  MessageCircle,
   Search,
-  ShoppingBag,
   X,
 } from "lucide-react";
 import { usePathname } from "next/navigation";
@@ -78,9 +78,9 @@ const searchPages: SearchPage[] = [
   { href: "/automacoes-iugis", title: "Automações Iugis", category: "Vitrine", keywords: "whatsapp inteligência artificial chatbot carrinho pedido" },
   { href: "/tracking-e-medicao", title: "Tracking e medição", category: "Vitrine", keywords: "gtm ga4 tracking medição pixel meta google ads server-side" },
   { href: "/google-ads-e-meta-ads", title: "Google Ads e Meta Ads", category: "Vitrine", keywords: "google ads meta ads shopping pmax merchant center remarketing" },
-  { href: "/iugis/chatbot", title: "Iugis Chatbot", category: "Automação", keywords: "chatbot ia whatsapp atendimento" },
-  { href: "/iugis/automacoes", title: "Iugis Automações", category: "Automação", keywords: "automação carrinho rastreio whatsapp" },
-  { href: "/iugis/planos", title: "Planos Iugis", category: "Automação", keywords: "preços planos chatbot automações" },
+  { href: "/automacoes-iugis#planos-iugis", title: "Iugis Chatbot", category: "Automação", keywords: "chatbot ia whatsapp atendimento" },
+  { href: "/automacoes-iugis", title: "Iugis Automações", category: "Automação", keywords: "automação carrinho rastreio whatsapp" },
+  { href: "/automacoes-iugis#planos-iugis", title: "Planos Iugis", category: "Automação", keywords: "preços planos chatbot automações" },
   ...services.map((service) => ({
     href: `/servicos-vtex/${service.slug}`,
     title: service.shortTitle,
@@ -179,22 +179,15 @@ export function HeaderV3() {
           type="button"
           title={language === "pt" ? "View site in English" : "Ver site em português"}
           aria-label={language === "pt" ? "View site in English" : "Ver site em português"}
-          className="flex shrink-0 items-center sm:absolute sm:right-6"
+          className="flex shrink-0 items-center gap-1.5 rounded-full px-2 py-1 text-[.7rem] font-bold tracking-[.08em] text-white/80 ring-1 ring-white/25 transition hover:bg-white/10 hover:text-white sm:absolute sm:right-6"
           onClick={toggleLanguage}
         >
-          {/* SVG flags: Windows renders emoji flags as "US"/"BR" text */}
-          <Image
-            src={language === "pt" ? "/brand/flags/us.svg" : "/brand/flags/br.svg"}
-            alt={language === "pt" ? "United States" : "Brasil"}
-            width={22}
-            height={16}
-            className="h-4 w-5.5 rounded-xs object-cover shadow-sm ring-1 ring-white/30"
-            draggable={false}
-          />
+          <Globe size={14} aria-hidden="true" />
+          <span lang={language === "pt" ? "en" : "pt-BR"}>{language === "pt" ? "EN" : "PT"}</span>
         </button>
       </div>
-      <header className="sticky top-0 z-50 overflow-visible bg-luxury-black/95 text-white backdrop-blur-md">
-        <div className="relative mx-auto flex max-w-360 items-center gap-2 px-5 py-3 sm:gap-4 sm:py-4 lg:px-10">
+      <header className="sticky top-0 z-50 overflow-visible bg-ink/95 text-white backdrop-blur-md">
+        <div className="relative mx-auto flex max-w-360 items-center gap-2 px-5 py-2.5 sm:gap-4 sm:py-3 lg:px-10">
           <button
             type="button"
             className="shrink-0 rounded-full p-2.5 text-white hover:bg-white/10 lg:hidden"
@@ -204,15 +197,15 @@ export function HeaderV3() {
           >
             {mobileOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
-          <Link href="/" className="shrink-0 transition hover:opacity-80" aria-label="eFcinco — loja de soluções" title="Ir para a home">
+          <Link href="/" className="shrink-0 transition hover:opacity-80" aria-label="eFcinco — página inicial" title="Ir para a página inicial">
             <Image
               src="/brand/efcinco-logo.svg"
               alt="eFcinco"
-              width={230}
-              height={51}
-              className="aspect-2432/544 h-auto w-37 sm:w-47.5 lg:w-57.5"
+              width={200}
+              height={44}
+              className="aspect-[9052/2009] h-auto w-34 sm:w-40 lg:w-46"
               style={{ height: "auto" }}
-              sizes="(min-width: 1024px) 230px, (min-width: 640px) 190px, 148px"
+              sizes="(min-width: 1024px) 184px, (min-width: 640px) 160px, 136px"
               priority
               unoptimized
             />
@@ -222,13 +215,10 @@ export function HeaderV3() {
 
           <div className="ml-auto flex shrink-0 items-center gap-1">
             <a href={`https://wa.me/${siteConfig.whatsapp}`} target="_blank" rel="noopener noreferrer" className="store-icon-link store-icon-link-dark hidden sm:grid" aria-label="Atendimento pelo WhatsApp" title="Atendimento pelo WhatsApp">
-              <Phone size={19} />
+              <MessageCircle size={19} />
             </a>
-            <Link href="/cases" className="store-icon-link store-icon-link-dark hidden sm:grid" aria-label="Cases favoritos" title="Cases">
-              <Heart size={19} />
-            </Link>
-            <button type="button" onClick={openCart} className="store-icon-link store-icon-link-dark relative grid" aria-label="Ver proposta">
-              <ShoppingBag size={19} />
+            <button type="button" onClick={openCart} className="store-icon-link store-icon-link-dark relative grid" aria-label={`Sua proposta${count > 0 ? ` (${count} itens)` : ""}`} title="Sua proposta">
+              <ClipboardList size={19} />
               {count > 0 && <span className="store-cart-count">{count}</span>}
             </button>
           </div>
@@ -255,10 +245,10 @@ export function HeaderV3() {
                     <a href="https://vtex.com/" target="_blank" rel="noopener noreferrer nofollow" aria-label="Visitar o site da VTEX" title="Conheça a VTEX" className="relative flex h-11 w-32 items-center">
                       <Image src="/vtex-Logo.svg" alt="VTEX" width={305} height={110} className={megaBrandLogoClass} />
                     </a>
-                    <Link href="/servicos-vtex" title="Ver vitrine VTEX" className="relative mt-4 block transition hover:opacity-80" onClick={() => closeMega("vtex")}>
-                      <span className="text-xs font-semibold uppercase tracking-[.08em] text-gold">Mais procurado</span>
+                    <Link href="/servicos-vtex" title="Ver serviços VTEX" className="relative mt-4 block transition hover:opacity-80" onClick={() => closeMega("vtex")}>
+                      <span className="text-xs font-semibold uppercase tracking-[.08em] text-accent">Mais procurado</span>
                       <strong className="mt-3 block text-xl">Soluções para e-commerce</strong>
-                      <span className="mt-5 inline-block text-sm">Ver vitrine VTEX →</span>
+                      <span className="mt-5 inline-block text-sm">Ver serviços VTEX →</span>
                     </Link>
                   </div>
                 </div>
@@ -284,7 +274,7 @@ export function HeaderV3() {
                       <Image src="/uappi-logo.svg" alt="Uappi" width={78} height={21} className={megaBrandLogoClass} unoptimized />
                     </a>
                     <Link href="/servicos-uappi" title="Ver todos os serviços Uappi" className="relative mt-4 block transition hover:opacity-80" onClick={() => closeMega("uappi")}>
-                      <span className="text-xs font-semibold uppercase tracking-[.08em] text-gold">Vitrine Uappi</span>
+                      <span className="text-xs font-semibold uppercase tracking-[.08em] text-accent">Uappi</span>
                       <strong className="mt-3 block text-xl">Soluções para sua operação</strong>
                       <span className="mt-5 inline-block text-sm">Ver todos os serviços →</span>
                     </Link>
@@ -312,7 +302,7 @@ export function HeaderV3() {
                       <Image src="/wake-logo.png" alt="Wake" width={215} height={68} className={megaBrandLogoClass} />
                     </a>
                     <Link href="/servicos-wake" title="Ver todos os serviços Wake" className="relative mt-4 block transition hover:opacity-80" onClick={() => closeMega("wake")}>
-                      <span className="text-xs font-semibold uppercase tracking-[.08em] text-gold">Vitrine Wake</span>
+                      <span className="text-xs font-semibold uppercase tracking-[.08em] text-accent">Wake</span>
                       <strong className="mt-3 block text-xl">Soluções para sua operação</strong>
                       <span className="mt-5 inline-block text-sm">Ver todos os serviços →</span>
                     </Link>
@@ -334,7 +324,7 @@ export function HeaderV3() {
                   <div className="group relative min-h-48 overflow-hidden rounded-xl bg-charcoal p-6 text-white">
                     <Image src="/brand/iugis-logo.png" alt="Iugis" width={124} height={38} className="h-auto w-28" style={{ width: "auto", height: "auto" }} />
                     <Link href="/automacoes-iugis" title="Conhecer a Iugis" className="relative mt-5 block transition hover:opacity-80" onClick={() => closeMega("iugis")}>
-                      <span className="text-xs font-semibold uppercase tracking-[.08em] text-gold">Venda no WhatsApp</span>
+                      <span className="text-xs font-semibold uppercase tracking-[.08em] text-accent">Venda no WhatsApp</span>
                       <strong className="mt-3 block text-xl">Recupere oportunidades sem esforço manual.</strong>
                       <span className="mt-5 inline-block text-sm">Conhecer a Iugis →</span>
                     </Link>
@@ -369,7 +359,7 @@ export function HeaderV3() {
                       </span>
                     </div>
                     <Link href="/tracking-e-medicao" title="Ver tracking e Ads" className="relative mt-4 block transition hover:opacity-80" onClick={() => closeMega("midia")}>
-                      <span className="text-xs font-semibold uppercase tracking-[.08em] text-gold">Tracking e Ads</span>
+                      <span className="text-xs font-semibold uppercase tracking-[.08em] text-accent">Tracking e Ads</span>
                       <strong className="mt-3 block text-xl">Medição e mídia no mesmo número</strong>
                       <span className="mt-5 inline-block text-sm">Ver todos os serviços →</span>
                     </Link>
@@ -377,16 +367,16 @@ export function HeaderV3() {
                 </div>
               </div>
             </div>
-            <Link className="store-category-link hidden xl:inline-flex" href="/#colecao-cases" title="Cases">Cases</Link>
+            <Link className="store-category-link hidden xl:inline-flex" href="/cases" title="Cases">Cases</Link>
             <Link className="store-category-link hidden xl:inline-flex" href="/blog" title="Conteúdos">Conteúdos</Link>
-            <Link href="/contato" title="Solicitar proposta" className="ml-auto shrink-0 rounded-full bg-white px-4 py-2 text-sm font-semibold text-[#006db1] shadow-sm transition hover:bg-white/90 xl:px-5 xl:py-2.5">
+            <Link href="/contato" title="Solicitar proposta" className="ml-auto shrink-0 rounded-full bg-brand px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-hover xl:px-5 xl:py-2">
               Solicitar proposta
             </Link>
           </div>
         </nav>
 
         {mobileOpen && (
-          <nav className="border-t border-soft-beige bg-white px-5 py-5 lg:hidden" aria-label="Menu móvel">
+          <nav className="border-t border-mist bg-white px-5 py-5 lg:hidden" aria-label="Menu móvel">
             <SiteSearch className="relative block" mobile onNavigate={() => closeMobileMenu()} />
             <div className="mt-5 grid gap-1">
               <Link href="/servicos-vtex" title="Todos os serviços VTEX" className="store-mobile-link font-bold" onClick={() => closeMobileMenu()}>Todos os serviços VTEX</Link>
@@ -401,8 +391,10 @@ export function HeaderV3() {
               {trackingLinks.map((link) => <StoreLink key={link.href} {...link} onNavigate={() => closeMobileMenu()} />)}
               <Link href="/google-ads-e-meta-ads" title="Google Ads e Meta Ads" className="mt-4 store-mobile-link font-bold" onClick={() => closeMobileMenu()}>Google Ads e Meta Ads</Link>
               {adsLinks.map((link) => <StoreLink key={link.href} {...link} onNavigate={() => closeMobileMenu()} />)}
-              <Link href="/cases" title="Cases" className="store-mobile-link" onClick={() => closeMobileMenu()}>Cases</Link>
-              <Link href="/contato" title="Ver proposta" className="mt-3 rounded-full bg-luxury-black px-5 py-3 text-center text-sm font-semibold text-white transition hover:bg-charcoal" onClick={() => closeMobileMenu()}>Ver proposta{count > 0 ? ` (${count})` : ""}</Link>
+              <Link href="/cases" title="Cases" className="mt-4 store-mobile-link font-bold" onClick={() => closeMobileMenu()}>Cases</Link>
+              <Link href="/blog" title="Conteúdos" className="store-mobile-link font-bold" onClick={() => closeMobileMenu()}>Conteúdos</Link>
+              <Link href="/sobre" title="Sobre a eFcinco" className="store-mobile-link font-bold" onClick={() => closeMobileMenu()}>Sobre a eFcinco</Link>
+              <Link href="/contato" title="Ver proposta" className="mt-3 rounded-full bg-brand px-5 py-3 text-center text-sm font-semibold text-white transition hover:bg-brand-hover" onClick={() => closeMobileMenu()}>Solicitar proposta{count > 0 ? ` (${count})` : ""}</Link>
             </div>
           </nav>
         )}
@@ -455,13 +447,13 @@ function SiteSearch({ className, mobile = false, onNavigate }: { className: stri
         />
       </label>
       {terms.length > 0 && (
-        <div id={resultsId} role="listbox" className="absolute left-0 top-[calc(100%+0.5rem)] z-50 w-full min-w-80 overflow-hidden rounded-xl border border-soft-beige bg-white p-2 text-luxury-black shadow-2xl">
+        <div id={resultsId} role="listbox" className="absolute left-0 top-[calc(100%+0.5rem)] z-50 w-full min-w-80 overflow-hidden rounded-xl border border-mist bg-white p-2 text-ink shadow-2xl">
           {results.length > 0 ? results.map((page) => (
-            <Link key={page.href} href={page.href} title={page.title} role="option" onClick={clearAndNavigate} className="block rounded-lg px-4 py-3 transition hover:bg-soft-beige hover:text-[#006db1]">
-              <span className="block text-[0.65rem] font-bold uppercase tracking-[.08em] text-warm-gray">{page.category}</span>
+            <Link key={page.href} href={page.href} title={page.title} role="option" onClick={clearAndNavigate} className="block rounded-lg px-4 py-3 transition hover:bg-mist hover:text-accent">
+              <span className="block text-[0.65rem] font-bold uppercase tracking-[.08em] text-muted">{page.category}</span>
               <span className="mt-1 block text-sm font-bold">{page.title}</span>
             </Link>
-          )) : <p className="px-4 py-3 text-sm text-warm-gray">Nenhuma página encontrada para “{query}”.</p>}
+          )) : <p className="px-4 py-3 text-sm text-muted">Nenhuma página encontrada para “{query}”.</p>}
         </div>
       )}
     </div>

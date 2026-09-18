@@ -4,98 +4,69 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Eye } from "lucide-react";
 import { useState } from "react";
-import { Badge } from "./Badge";
-import { Rating } from "./Rating";
 import { QuickViewModal } from "./QuickViewModal";
 import type { ServicePage } from "@/content/services";
 
 type ProductCardProps = {
   service: ServicePage;
-  delay?: number;
   href?: string;
   category?: string;
   badge?: string;
 };
 
-export function ProductCard({ service, delay = 0, href, category = "Solução sob medida", badge }: ProductCardProps) {
+export function ProductCard({ service, href, category = "Serviço VTEX", badge }: ProductCardProps) {
   const [quickViewOpen, setQuickViewOpen] = useState(false);
   const isIntegration = service.slug.includes("integracoes");
   const productHref = href ?? `/servicos-vtex/${service.slug}`;
+  const featured = service.slug === "implantacao-vtex-io";
 
   return (
     <>
-      <article
-        className="store-product-card group"
-        style={{ animationDelay: `${delay}ms` }}
-      >
-        <div className="store-product-media">
+      <article className="store-product-card group">
+        <div className="store-product-media bg-mist">
           <Link href={productHref} aria-label={`Ver ${service.shortTitle}`} title={`Ver ${service.shortTitle}`} className="absolute inset-0">
             {service.image && (
-            <Image
-              src={service.image}
-              alt=""
-              fill
-              className={`h-full w-full ${isIntegration ? "object-contain" : "object-cover"}`}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            />
+              <Image
+                src={service.image}
+                alt=""
+                fill
+                className={`h-full w-full ${isIntegration ? "object-contain" : "object-cover"}`}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
             )}
           </Link>
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-luxury-black/50 to-transparent" />
-          <div className="pointer-events-none absolute left-4 top-4">
-            <Badge variant={service.slug === "implantacao-vtex-io" ? "gold" : "outline"}>
-              {badge ?? (service.slug === "implantacao-vtex-io" ? "Mais procurado" : "VTEX Expert")}
-            </Badge>
-          </div>
+          {(badge || featured) && (
+            <span className={`pointer-events-none absolute left-4 top-4 rounded-full px-3 py-1 text-[.7rem] font-bold uppercase tracking-[.08em] shadow-sm ${featured ? "bg-brand text-white" : "bg-white text-ink"}`}>
+              {featured ? "Mais procurado" : badge}
+            </span>
+          )}
           <button
             type="button"
             onClick={() => setQuickViewOpen(true)}
-            className="absolute bottom-4 right-4 z-10 grid h-11 w-11 place-items-center rounded-full bg-white text-luxury-black opacity-0 shadow-lg transition group-hover:opacity-100 focus:opacity-100"
+            className="absolute bottom-4 right-4 z-10 grid h-10 w-10 place-items-center rounded-full bg-white text-ink opacity-0 shadow-lg transition group-hover:opacity-100 focus:opacity-100"
             aria-label={`Prévia de ${service.shortTitle}`}
+            title="Prévia rápida"
           >
-            <Eye size={18} />
+            <Eye size={17} />
           </button>
         </div>
 
         <div className="flex flex-1 flex-col p-6">
-          <p className="font-mono text-[0.65rem] font-bold uppercase tracking-[0.14em] text-warm-gray">{category}</p>
-          <h3 className="mt-2 font-display text-2xl font-semibold text-luxury-black transition-colors group-hover:text-[#006db1]">
+          <p className="text-[.7rem] font-bold uppercase tracking-[.12em] text-muted">{category}</p>
+          <h3 className="mt-2 font-display text-xl font-bold text-ink transition-colors group-hover:text-brand sm:text-2xl">
             {service.shortTitle}
           </h3>
-          
-          <p className="mt-2 flex-1 text-sm leading-relaxed text-warm-gray line-clamp-3">
+          <p className="mt-2 line-clamp-2 flex-1 text-sm leading-relaxed text-muted">
             {service.description}
           </p>
-
-          <div className="mt-6 flex items-center justify-between border-t border-soft-beige pt-4">
-            <div>
-              <div className="font-mono text-sm text-warm-gray">A partir de</div>
-              <div className="font-mono text-lg font-bold text-luxury-black">
-                Sob consulta
-              </div>
-            </div>
-            <div className="text-right">
-              <Rating value={4.9} max={5} showValue={false} size={14} />
-              <span className="mt-1 block text-xs text-warm-gray">Projetos avaliados</span>
-            </div>
-          </div>
-
-          <div className="mt-5 flex gap-2">
-            <button
-              onClick={() => setQuickViewOpen(true)}
-              className="rounded-full border border-soft-beige bg-white px-4 py-3 text-sm font-semibold text-charcoal transition hover:border-[#006db1] hover:bg-[#006db1] hover:text-white"
-            >
-              <Eye size={16} className="mr-1.5 inline" />
-              Ver rápido
-            </button>
-            <Link
-              href={productHref}
-              title={`Ver produto: ${service.shortTitle}`}
-              className="ml-auto inline-flex flex-1 items-center justify-center rounded-full bg-[#006db1] px-4 py-3 text-sm font-semibold text-white transition hover:bg-[#005a93]"
-            >
-              Ver produto
-              <ArrowRight size={14} className="ml-1 inline" />
-            </Link>
-          </div>
+          <Link
+            href={productHref}
+            title={`Ver detalhes: ${service.shortTitle}`}
+            className="mt-5 inline-flex w-fit items-center gap-1.5 text-sm font-bold text-brand"
+          >
+            Ver detalhes
+            <ArrowRight size={15} className="transition group-hover:translate-x-0.5" />
+          </Link>
         </div>
       </article>
 

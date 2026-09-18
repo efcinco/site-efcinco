@@ -1,13 +1,22 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CheckCircle, Star } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { cases } from "@/content/cases";
+import { siteConfig } from "@/lib/seo/site";
 
 export function HeroV3() {
+  const years = new Date().getFullYear() - siteConfig.foundingYear;
+  const stats = [
+    { value: `${years}+ anos`, label: "em e-commerce" },
+    { value: "50+ lojas", label: "atendidas" },
+    { value: `${cases.length} cases`, label: "publicados" },
+  ];
+
   return (
     <section className="store-hero">
       <Image
-        src="/images/code-v2.jpg"
-        alt="Time técnico trabalhando na implantação de uma loja VTEX"
+        src="/images/collab-v2.jpg"
+        alt="Especialistas revisando a operação de uma loja virtual no notebook"
         fill
         priority
         loading="eager"
@@ -17,30 +26,32 @@ export function HeroV3() {
         decoding="async"
       />
       <div className="store-hero-overlay" />
-      <div className="relative mx-auto flex min-h-[inherit] max-w-[1440px] items-end px-5 py-14 sm:px-10 sm:py-20">
+      <div className="relative mx-auto flex min-h-[inherit] max-w-[1440px] items-end px-5 pb-24 pt-14 sm:px-10 sm:py-20">
         <div className="max-w-2xl text-white">
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-gold/60 bg-luxury-black/50 px-4 py-2 text-xs font-bold uppercase tracking-[.08em] text-gold backdrop-blur">
-            <CheckCircle size={14} /> Soluções VTEX para vender mais
-          </div>
-          <h1 className="font-display text-balance text-5xl font-bold leading-[.95] tracking-[-.02em] sm:text-7xl">
-            Sua operação VTEX, em vitrine de alta performance.
+          <p className="eyebrow">Agência VTEX · Uappi · Wake</p>
+          <h1 className="mt-5 font-display text-balance text-[2.6rem] font-extrabold leading-[1.02] tracking-[-.03em] sm:text-6xl lg:text-7xl">
+            Sua loja VTEX mais rápida, estável e pronta para vender.
           </h1>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/80">
-            Implantação, evolução e automações Iugis organizadas como uma coleção de soluções para sua loja crescer com segurança.
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/85">
+            Implantação, migração, evolução contínua e automações Iugis para operações que precisam crescer com segurança.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link href="/#vitrine-servicos" title="Explorar soluções" className="inline-flex items-center gap-2 rounded-full bg-[#006db1] px-6 py-3.5 text-sm font-bold text-white transition hover:bg-[#005a93]">
-              Explorar soluções <ArrowRight size={17} />
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <Link href="/contato" title="Solicitar diagnóstico" className="inline-flex items-center justify-center gap-2 rounded-full bg-brand px-6 py-3.5 text-sm font-bold text-white transition hover:bg-brand-hover">
+              Solicitar diagnóstico <ArrowRight size={17} />
             </Link>
-            <Link href="/servicos-vtex/implantacao-vtex-io" title="Ver mais procurado" className="inline-flex items-center gap-2 rounded-full border border-white/40 px-6 py-3.5 text-sm font-bold text-white transition hover:bg-white/10">
-              Ver mais procurado
+            <Link href="/#vitrine-servicos" title="Ver serviços" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/40 px-6 py-3.5 text-sm font-bold text-white transition hover:bg-white/10">
+              Ver serviços
             </Link>
           </div>
-          <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm font-medium text-white/85">
-            <span className="flex items-center gap-2"><Star size={15} className="fill-gold text-gold" /> 4,9 em projetos entregues</span>
-            <span>+15 anos de operação</span>
-            <span>50+ lojas atendidas</span>
-          </div>
+          <dl className="mt-10 grid max-w-lg grid-cols-3 gap-4 border-t border-white/15 pt-6">
+            {stats.map((stat) => (
+              <div key={stat.label}>
+                <dt className="sr-only">{stat.label}</dt>
+                <dd className="whitespace-nowrap font-display text-lg font-bold sm:text-2xl">{stat.value}</dd>
+                <dd className="mt-0.5 whitespace-nowrap text-xs text-white/65 sm:text-sm">{stat.label}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </div>
     </section>

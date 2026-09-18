@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, Phone, ShieldCheck, Lock, Award } from "lucide-react";
+import { Mail, Phone, Award } from "lucide-react";
 import { NewsletterForm } from "./NewsletterForm";
+import { WhatsAppFloat } from "./WhatsAppFloat";
 import { siteConfig } from "@/lib/seo/site";
 
 const serviceLinks = [
@@ -15,14 +16,15 @@ const serviceLinks = [
 
 const iugisLinks = [
   { href: "/automacoes-iugis", label: "Plataforma" },
-  { href: "/automacoes-iugis", label: "Chatbot IA" },
-  { href: "/automacoes-iugis", label: "Automações" },
-  { href: "/#planos-iugis", label: "Planos" },
+  { href: "/automacoes-iugis/recuperacao-carrinho-whatsapp", label: "Recuperação de carrinho" },
+  { href: "/automacoes-iugis/status-pedido-whatsapp", label: "Status do pedido" },
+  { href: "/automacoes-iugis#planos-iugis", label: "Planos" },
 ];
 
 const companyLinks = [
   { href: "/cases", label: "Cases" },
-  { href: "/blog", label: "Blog" },
+  { href: "/sobre", label: "Sobre" },
+  { href: "/blog", label: "Conteúdos" },
   { href: "/contato", label: "Contato" },
 ];
 
@@ -33,18 +35,16 @@ const legalLinks = [
 
 const certifications = [
   { icon: Award, label: "Partner VTEX" },
-  { icon: ShieldCheck, label: "SSL Secure" },
-  { icon: Lock, label: "LGPD Compliant" },
 ];
 
 export function FooterV3() {
   return (
-    <footer className="border-t border-white/10 bg-luxury-black text-white">
-      <section className="bg-charcoal py-10 sm:py-14">
+    <footer className="border-t border-white/10 bg-ink text-white">
+      <section className="py-10 sm:py-14">
         <div className="mx-auto max-w-[1440px] px-5 sm:px-10">
           <div className="store-newsletter grid items-center gap-8 lg:grid-cols-[1fr_.85fr]">
             <div className="relative">
-              <p className="font-mono text-xs font-bold uppercase tracking-[.08em] text-[#d3d9de]">eFcinco insider</p>
+              <p className="eyebrow">Newsletter eFcinco</p>
               <h2 className="mt-4 max-w-lg font-display text-4xl font-bold leading-none tracking-[-.02em] text-white sm:text-5xl">
                 Conteúdo técnico, sem cara de conteúdo genérico.
               </h2>
@@ -58,21 +58,20 @@ export function FooterV3() {
           {/* Logo & Description */}
           <div className="lg:col-span-2">
             <div className="flex flex-col items-start">
-              <Link href="/" title="Ir para a home" className="inline-block transition hover:opacity-80">
+              <Link href="/" title="Ir para a página inicial" className="inline-block transition hover:opacity-80">
                 <Image
                   src="/brand/efcinco-logo.svg"
                   alt="eFcinco"
                   width={180}
-                  height={41}
+                  height={40}
                   className="h-9 w-auto"
-                  style={{ width: "auto", height: "auto" }}
                   unoptimized
                 />
               </Link>
               <Link
                 href="/sobre"
                 title="Sobre a eFcinco"
-                className="mt-3 text-sm font-semibold text-white/80 transition hover:text-[#d3d9de] hover:underline"
+                className="mt-3 text-sm font-semibold text-white/80 transition hover:text-accent hover:underline"
               >
                 Sobre a eFcinco
               </Link>
@@ -84,7 +83,7 @@ export function FooterV3() {
               <a
                 href={`mailto:${siteConfig.email}`}
                 title={`Enviar e-mail para ${siteConfig.email}`}
-                className="link-underline flex items-center gap-2 hover:text-[#d3d9de]"
+                className="link-underline flex items-center gap-2 hover:text-accent"
               >
                 <Mail size={16} />
                 {siteConfig.email}
@@ -92,7 +91,7 @@ export function FooterV3() {
               <a
                 href={`tel:${siteConfig.phone.replace(/\D/g, "")}`}
                 title={`Ligar para ${siteConfig.phone}`}
-                className="link-underline flex items-center gap-2 hover:text-[#d3d9de]"
+                className="link-underline flex items-center gap-2 hover:text-accent"
               >
                 <Phone size={16} />
                 {siteConfig.phone}
@@ -107,7 +106,7 @@ export function FooterV3() {
                     href={url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 text-white/75 transition hover:bg-[#d3d9de] hover:text-luxury-black"
+                    className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 text-white/75 transition hover:bg-accent hover:text-ink"
                     aria-label={isLinkedIn ? "LinkedIn" : "Instagram"}
                     title={isLinkedIn ? "LinkedIn da eFcinco" : "Instagram da eFcinco"}
                   >
@@ -135,7 +134,7 @@ export function FooterV3() {
                   <Link
                     href={link.href}
                     title={link.label}
-                    className="link-underline text-sm text-white/65 hover:text-[#d3d9de]"
+                    className="link-underline text-sm text-white/65 hover:text-accent"
                   >
                     {link.label}
                   </Link>
@@ -153,7 +152,7 @@ export function FooterV3() {
                   <Link
                     href={link.href}
                     title={link.label}
-                    className="link-underline text-sm text-white/65 hover:text-[#d3d9de]"
+                    className="link-underline text-sm text-white/65 hover:text-accent"
                   >
                     {link.label}
                   </Link>
@@ -167,7 +166,7 @@ export function FooterV3() {
                   <Link
                     href={link.href}
                     title={link.label}
-                    className="link-underline text-sm text-white/65 hover:text-[#d3d9de]"
+                    className="link-underline text-sm text-white/65 hover:text-accent"
                   >
                     {link.label}
                   </Link>
@@ -180,7 +179,7 @@ export function FooterV3() {
           <div>
             <h3 className="font-semibold text-white">Precisa de ajuda?</h3>
             <p className="mt-4 text-sm leading-relaxed text-white/65">Monte sua proposta com um especialista e encontre a solução certa para o momento da sua loja.</p>
-            <Link href="/contato" title="Falar com consultor" className="mt-5 inline-flex rounded-full bg-[#006db1] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#005a93]">
+            <Link href="/contato" title="Falar com consultor" className="mt-5 inline-flex rounded-full bg-brand px-5 py-3 text-sm font-bold text-white transition hover:bg-brand-hover">
               Falar com consultor
             </Link>
           </div>
@@ -195,7 +194,7 @@ export function FooterV3() {
                   key={cert.label}
                   className="flex items-center gap-2 text-sm text-white/65"
                 >
-                  <cert.icon size={18} className="text-[#d3d9de]" />
+                  <cert.icon size={18} className="text-accent" />
                   <span>{cert.label}</span>
                 </div>
               ))}
@@ -212,13 +211,13 @@ export function FooterV3() {
             © {new Date().getFullYear()} {siteConfig.legalName} • Fundada em{" "}
             {siteConfig.foundingYear}
           </p>
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-4 pr-16 sm:pr-20">
             {legalLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 title={link.label}
-                className="link-underline hover:text-[#d3d9de]"
+                className="link-underline hover:text-accent"
               >
                 {link.label}
               </Link>
@@ -226,18 +225,7 @@ export function FooterV3() {
           </div>
         </div>
       </div>
-      <a
-        href={`https://wa.me/${siteConfig.whatsapp}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Conversar pelo WhatsApp"
-        title="Conversar pelo WhatsApp"
-        className="fixed bottom-5 right-5 z-30 grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-white shadow-xl transition hover:scale-105 hover:bg-[#1ebe5d] focus:outline-none focus:ring-4 focus:ring-[#25D366]/30"
-      >
-        <svg viewBox="0 0 24 24" fill="currentColor" className="h-7 w-7" aria-hidden="true">
-          <path d="M20.52 3.45A11.82 11.82 0 0 0 12.07 0C5.55 0 .25 5.3.25 11.82c0 2.08.54 4.1 1.57 5.88L.15 23.8l6.25-1.64a11.77 11.77 0 0 0 5.66 1.44h.01c6.52 0 11.82-5.3 11.82-11.82 0-3.16-1.23-6.12-3.37-8.33ZM12.07 21.6c-1.8 0-3.57-.48-5.12-1.39l-.37-.22-3.71.97.99-3.62-.24-.37a9.75 9.75 0 0 1-1.5-5.15c0-5.38 4.38-9.76 9.77-9.76 2.61 0 5.07 1.02 6.92 2.87a9.7 9.7 0 0 1 2.86 6.92c0 5.38-4.38 9.76-9.77 9.76Zm5.35-7.32c-.29-.15-1.7-.84-1.96-.93-.26-.1-.45-.15-.64.15-.19.29-.74.93-.91 1.12-.17.2-.34.22-.63.07-.29-.15-1.21-.45-2.3-1.44-.85-.75-1.42-1.68-1.59-1.97-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.2-.29.29-.49.1-.19.05-.37-.02-.52-.07-.15-.64-1.54-.88-2.11-.23-.55-.47-.47-.64-.48h-.55c-.2 0-.52.07-.79.37-.27.29-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.22 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.7-.7 1.94-1.38.24-.69.24-1.28.17-1.4-.07-.12-.26-.19-.55-.34Z" />
-        </svg>
-      </a>
+      <WhatsAppFloat />
     </footer>
   );
 }

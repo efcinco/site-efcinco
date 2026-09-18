@@ -22,14 +22,14 @@ export function FaqSection({
     <section className="py-20 sm:py-24">
       <div className="mx-auto max-w-3xl px-5 sm:px-6 lg:px-8">
         <div className="text-center">
-          <p className="font-mono text-sm font-semibold uppercase tracking-wider text-gold">
+          <p className="eyebrow">
             FAQ
           </p>
-          <h2 className="mt-2 font-display text-4xl font-bold tracking-tight text-luxury-black">
+          <h2 className="mt-2 font-display text-4xl font-bold tracking-tight text-ink">
             {title}
           </h2>
           {description && (
-            <p className="mt-4 text-lg text-warm-gray">{description}</p>
+            <p className="mt-4 text-lg text-muted">{description}</p>
           )}
         </div>
 
@@ -38,12 +38,12 @@ export function FaqSection({
         </div>
 
         <div className="mt-8 text-center">
-          <p className="text-sm text-warm-gray">
+          <p className="text-sm text-muted">
             Não encontrou o que procurava?{" "}
             <a
               href="/contato"
               title="Fale conosco"
-              className="font-semibold text-gold transition hover:text-[#005a93] hover:underline"
+              className="font-semibold text-accent transition hover:text-brand-hover hover:underline"
             >
               Fale conosco
             </a>

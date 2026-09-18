@@ -2,12 +2,12 @@ import type { ReactNode } from "react";
 
 type BadgeProps = {
   children: ReactNode;
-  variant?: "gold" | "outline" | "success" | "alert";
+  variant?: "accent" | "outline" | "success" | "alert";
   className?: string;
 };
 
 const variants = {
-  gold: "badge-gold",
+  accent: "badge-accent",
   outline: "badge-outline",
   success: "bg-success/10 text-success border border-success/20",
   alert: "bg-alert/10 text-alert border border-alert/20",
@@ -15,7 +15,7 @@ const variants = {
 
 export function Badge({
   children,
-  variant = "gold",
+  variant = "accent",
   className = "",
 }: BadgeProps) {
   return (

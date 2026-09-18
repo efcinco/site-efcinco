@@ -7,20 +7,20 @@ Contato: contato@efcinco.com.br
 
 ## Serviços principais
 
-- Implantação VTEX IO: https://www.efcinco.com.br/servicos/implantacao-vtex-io
-- Migração VTEX IO: https://www.efcinco.com.br/servicos/migracao-vtex-io
-- Manutenção e Evolução VTEX: https://www.efcinco.com.br/servicos/manutencao-vtex
+- Implantação VTEX IO: https://www.efcinco.com.br/servicos-vtex/implantacao-vtex-io
+- Migração VTEX IO: https://www.efcinco.com.br/servicos-vtex/migracao-vtex-io
+- Manutenção e Evolução VTEX: https://www.efcinco.com.br/servicos-vtex/manutencao-vtex
 - SEO e GEO VTEX: https://www.efcinco.com.br/servicos-vtex/seo-vtex
-- UX e Conversão: https://www.efcinco.com.br/servicos/ux-conversao
-- Consultoria VTEX: https://www.efcinco.com.br/servicos/consultoria-vtex
-- Integrações e Apps: https://www.efcinco.com.br/servicos/integracoes-vtex
+- UX e Conversão: https://www.efcinco.com.br/servicos-vtex/ux-conversao
+- Consultoria VTEX: https://www.efcinco.com.br/servicos-vtex/consultoria-vtex
+- Integrações e Apps: https://www.efcinco.com.br/servicos-vtex/integracoes-vtex
 
 ## Produto Iugis
 
-- Hub Iugis: https://www.efcinco.com.br/iugis
-- Chatbot IA: https://www.efcinco.com.br/iugis/chatbot
-- Automações Commerce: https://www.efcinco.com.br/iugis/automacoes
-- Planos: https://www.efcinco.com.br/iugis/planos
+- Hub Iugis: https://www.efcinco.com.br/automacoes-iugis
+- Chatbot IA: https://www.efcinco.com.br/automacoes-iugis
+- Automações Commerce: https://www.efcinco.com.br/automacoes-iugis
+- Planos: https://www.efcinco.com.br/automacoes-iugis#planos-iugis
 
 ## Outras páginas
 

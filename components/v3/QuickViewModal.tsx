@@ -43,16 +43,16 @@ export function QuickViewModal({
         className="modal-content"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="sticky top-0 z-10 flex items-center justify-between border-b border-soft-beige bg-white p-6">
+        <div className="sticky top-0 z-10 flex items-center justify-between border-b border-mist bg-white p-6">
           <h2
             id="modal-title"
-            className="font-display text-2xl font-bold text-luxury-black"
+            className="font-display text-2xl font-bold text-ink"
           >
             {service.title}
           </h2>
           <button
             onClick={onClose}
-            className="rounded-lg p-2 transition hover:bg-soft-beige"
+            className="rounded-lg p-2 transition hover:bg-mist"
             aria-label="Fechar modal"
           >
             <X size={20} />
@@ -60,16 +60,16 @@ export function QuickViewModal({
         </div>
 
         <div className="p-6">
-          <p className="text-base leading-relaxed text-warm-gray">
+          <p className="text-base leading-relaxed text-muted">
             {service.answer}
           </p>
 
           <div className="mt-6">
-            <h3 className="font-semibold text-luxury-black">Entregáveis</h3>
+            <h3 className="font-semibold text-ink">Entregáveis</h3>
             <ul className="mt-3 space-y-2">
               {service.deliverables.slice(0, 5).map((item, index) => (
-                <li key={index} className="flex items-start gap-2 text-sm text-warm-gray">
-                  <CheckCircle size={16} className="mt-0.5 shrink-0 text-gold" />
+                <li key={index} className="flex items-start gap-2 text-sm text-muted">
+                  <CheckCircle size={16} className="mt-0.5 shrink-0 text-accent" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -77,17 +77,17 @@ export function QuickViewModal({
           </div>
 
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
-            <div className="rounded-lg bg-soft-beige p-4">
-              <h4 className="text-sm font-semibold text-luxury-black">Para quem é</h4>
-              <ul className="mt-2 space-y-1 text-sm text-warm-gray">
+            <div className="rounded-lg bg-mist p-4">
+              <h4 className="text-sm font-semibold text-ink">Para quem é</h4>
+              <ul className="mt-2 space-y-1 text-sm text-muted">
                 {service.forWho.slice(0, 3).map((item, index) => (
                   <li key={index}>• {item}</li>
                 ))}
               </ul>
             </div>
-            <div className="rounded-lg bg-soft-beige p-4">
-              <h4 className="text-sm font-semibold text-luxury-black">Não é para</h4>
-              <ul className="mt-2 space-y-1 text-sm text-warm-gray">
+            <div className="rounded-lg bg-mist p-4">
+              <h4 className="text-sm font-semibold text-ink">Não é para</h4>
+              <ul className="mt-2 space-y-1 text-sm text-muted">
                 {service.notFor.map((item, index) => (
                   <li key={index}>• {item}</li>
                 ))}

@@ -2,8 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { ArrowRight } from "lucide-react";
-import { Badge } from "./Badge";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { CaseLogo } from "./CaseLogo";
 import { FilterTabs } from "./FilterTabs";
 import type { CaseCategory, CaseStudy } from "@/content/cases";
@@ -29,27 +28,9 @@ export function PortfolioCases({ cases }: PortfolioCasesProps) {
   });
 
   return (
-    <section className="py-20 sm:py-24">
+    <section className="bg-paper py-16 sm:py-20">
       <div className="mx-auto max-w-[1440px] px-5 sm:px-10">
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="font-mono text-sm font-semibold uppercase tracking-wider text-gold">
-              Cases
-            </p>
-            <h2 className="mt-2 font-display text-4xl font-bold tracking-tight text-luxury-black">
-              Resultados com engenharia e operação
-            </h2>
-          </div>
-          <Link
-            href="/cases"
-            title="Ver todos os cases"
-            className="link-underline font-medium text-gold hover:text-gold-hover"
-          >
-            Ver todos os cases →
-          </Link>
-        </div>
-
-        <div className="mt-8">
+        <div>
           <FilterTabs tabs={categories} activeTab={activeTab} onChange={(id) => setActiveTab(id as (typeof categories)[number]["id"])} />
         </div>
 
@@ -59,28 +40,34 @@ export function PortfolioCases({ cases }: PortfolioCasesProps) {
               key={item.slug}
             href={`/cases/${item.slug}`}
               title={item.title}
-              className="group relative flex flex-col overflow-hidden rounded-xl bg-white ring-1 ring-soft-beige transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:ring-gold/40"
+              className="group relative flex flex-col overflow-hidden rounded-2xl bg-white ring-1 ring-mist transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:ring-brand/40"
               style={{ animationDelay: `${index * 80}ms` }}
             >
-              <div className="relative aspect-[16/10] overflow-hidden bg-white">
-                <CaseLogo src={item.image} alt={`Logo ${item.client}`} onDark={item.logoOnDark} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
-                <div className="absolute left-4 top-4">
-                  <Badge variant="gold">{item.segment}</Badge>
+              <div className="relative aspect-[16/8] overflow-hidden bg-paper">
+                <div className="absolute inset-x-14 inset-y-10">
+                  <CaseLogo src={item.image} alt={`Logo ${item.client}`} onDark={item.logoOnDark} sizes="(max-width: 768px) 80vw, 25vw" tight mono />
                 </div>
+                <span className="absolute left-4 top-4 rounded-full bg-white px-3 py-1 text-[.7rem] font-bold uppercase tracking-[.08em] text-muted shadow-sm">{item.segment}</span>
               </div>
 
               <div className="flex flex-1 flex-col p-6">
-                <h3 className="font-display text-xl font-semibold text-luxury-black transition group-hover:text-gold">
+                <h3 className="font-display text-xl font-bold text-ink transition group-hover:text-brand">
                   {item.title}
                 </h3>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-warm-gray line-clamp-2">
+                <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-muted">
                   {item.summary}
                 </p>
-                <div className="mt-4 flex items-center justify-between border-t border-soft-beige pt-4">
-                  <span className="text-xs font-medium text-warm-gray">
+                {item.results[0] && (
+                  <p className="mt-4 flex flex-1 items-start gap-2 text-sm font-semibold text-ink">
+                    <CheckCircle2 size={17} className="mt-0.5 shrink-0 text-brand" />
+                    {item.results[0]}
+                  </p>
+                )}
+                <div className="mt-4 flex items-center justify-between border-t border-mist pt-4">
+                  <span className="text-xs font-medium text-muted">
                     {item.client}
                   </span>
-                  <span className="inline-flex items-center gap-1 text-sm font-semibold text-gold">
+                  <span className="inline-flex items-center gap-1 text-sm font-semibold text-accent">
                     Ler case
                     <ArrowRight size={14} />
                   </span>

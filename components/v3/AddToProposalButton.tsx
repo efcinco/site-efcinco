@@ -15,7 +15,7 @@ export function AddToProposalButton({ slug, title, image }: { slug: string; titl
     <button
       type="button"
       onClick={handleAdd}
-      className="inline-flex w-full items-center justify-center rounded-lg bg-[#006db1] px-6 py-4 text-lg font-bold text-white transition hover:bg-[#005a93] active:scale-[.98]"
+      className="inline-flex w-full items-center justify-center rounded-lg bg-brand px-6 py-4 text-lg font-bold text-white transition hover:bg-brand-hover active:scale-[.98]"
     >
       Adicionar à proposta <ChevronRight size={18} className="ml-1" />
     </button>

@@ -1,15 +1,7 @@
-import Image from "next/image";
-import { Suspense } from "react";
-import { Mail, MessageCircle } from "lucide-react";
-import { ContactForm } from "@/components/ContactForm";
-import { PageHero } from "@/components/PageHero";
-import { Container } from "@/components/ui/Container";
-import { Icon } from "@/components/ui/Icon";
-import {
-  JsonLd,
-  breadcrumbJsonLd,
-  contactPageJsonLd,
-} from "@/lib/seo/jsonld";
+import Link from "next/link";
+import { ChevronRight, MessageCircle } from "lucide-react";
+import { ProposalCheckout } from "@/components/v3/ProposalCheckout";
+import { JsonLd, breadcrumbJsonLd, contactPageJsonLd } from "@/lib/seo/jsonld";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { siteConfig } from "@/lib/seo/site";
 
@@ -20,69 +12,29 @@ export const metadata = buildMetadata({
   path: "/contato",
 });
 
-const crumbs = [
-  { name: "Início", path: "/" },
-  { name: "Contato", path: "/contato" },
-];
+export default function ProposalPage() {
+  const crumbs = [
+    { name: "Início", path: "/" },
+    { name: "Proposta", path: "/contato" },
+  ];
 
-function LegacyContatoPage() {
   return (
     <>
       <JsonLd data={[breadcrumbJsonLd(crumbs), contactPageJsonLd()]} />
-      <PageHero
-        eyebrow="Contato"
-        title="Agende um diagnóstico"
-        description="Conte sobre sua loja VTEX ou sobre a operação que deseja automatizar com Iugis."
-        image="/images/contact-v2.jpg"
-        imageAlt="Atendimento e diagnóstico técnico para lojistas VTEX"
-        breadcrumbs={crumbs}
-      />
-      <section className="atmosphere py-16 sm:py-20">
-        <Container>
-          <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-            <div>
-              <div className="relative mb-8 hidden aspect-[16/10] overflow-hidden rounded-xl lg:block">
-                <Image
-                  src="/images/checkout-v2.jpg"
-                  alt="Checkout e jornada de compra em e-commerce"
-                  fill
-                  className="object-cover"
-                  sizes="40vw"
-                />
-              </div>
-              <div className="space-y-4 text-sm">
-                <a
-                  href={`mailto:${siteConfig.email}`}
-                  className="flex items-center gap-3 rounded-xl bg-white px-4 py-3 text-navy ring-1 ring-navy/8 transition hover:ring-brand/40"
-                >
-                  <Icon icon={Mail} className="text-brand" />
-                  {siteConfig.email}
-                </a>
-                <a
-                  href={`https://wa.me/${siteConfig.whatsapp}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 rounded-xl bg-white px-4 py-3 text-navy ring-1 ring-navy/8 transition hover:ring-brand/40"
-                >
-                  <Icon icon={MessageCircle} className="text-brand" />
-                  Conversar no WhatsApp
-                </a>
-              </div>
-            </div>
-            <Suspense
-              fallback={
-                <div className="rounded-2xl bg-white p-8 ring-1 ring-navy/8">
-                  Carregando formulário…
-                </div>
-              }
-            >
-              <ContactForm />
-            </Suspense>
+      <div className="border-b border-mist bg-white">
+        <div className="mx-auto flex max-w-[1440px] items-center gap-1 px-5 py-4 text-xs text-muted sm:px-10">
+          <Link href="/" title="Início" className="transition hover:text-accent hover:underline">Início</Link><ChevronRight size={13} /><span className="text-ink">Sua proposta</span>
+        </div>
+      </div>
+      <section className="store-section bg-paper">
+        <div className="mx-auto max-w-[1200px] px-5 sm:px-10">
+          <ProposalCheckout />
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4 text-sm text-muted">
+            <span>Prefere falar agora?</span>
+            <a href={`https://wa.me/${siteConfig.whatsapp}`} target="_blank" rel="noopener noreferrer" title="Conversar no WhatsApp" className="inline-flex items-center gap-2 font-bold text-ink underline underline-offset-4 transition hover:text-accent"><MessageCircle size={16} className="text-accent" /> Conversar no WhatsApp</a>
           </div>
-        </Container>
+        </div>
       </section>
     </>
   );
 }
-
-export { default } from "../v3/contato/page";

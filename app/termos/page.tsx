@@ -12,9 +12,9 @@ export default function TermosPage() {
   return (
     <section className="mx-auto max-w-4xl px-5 py-24 sm:px-8">
       <h1 className="font-display text-4xl font-bold text-ink">Termos de Uso</h1>
-      <p className="mt-4 text-sm text-slate">Última atualização: Agosto de 2026</p>
+      <p className="mt-4 text-sm text-muted">Última atualização: Agosto de 2026</p>
 
-      <div className="prose prose-slate mt-12 max-w-none">
+      <div className="prose prose-muted mt-12 max-w-none">
         <h2 className="text-2xl font-semibold text-ink">1. Aceitação dos Termos</h2>
         <p>
           Ao acessar e utilizar os serviços da eFcinco, você concorda com estes Termos de Uso e com nossa Política de Privacidade.

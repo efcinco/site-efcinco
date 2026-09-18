@@ -14,35 +14,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticRoutes = [
     "",
-    "/servicos",
     "/servicos-vtex",
     "/servicos-uappi",
     "/servicos-wake",
     "/automacoes-iugis",
     "/tracking-e-medicao",
     "/google-ads-e-meta-ads",
-    "/iugis",
-    "/iugis/chatbot",
-    "/iugis/automacoes",
-    "/iugis/planos",
     "/cases",
     "/blog",
     "/sobre",
     "/contato",
     "/privacidade",
     "/termos",
-    "/v2",
-    "/v2/servicos",
-    "/v2/automacoes",
-    "/v2/cases",
-    "/v2/blog",
-    "/v2/sobre",
-    "/v2/contato",
   ].map((path) => ({
     url: `${siteConfig.url}${path}`,
     lastModified: now,
     changeFrequency: "weekly" as const,
-    priority: path === "" ? 1 : path.startsWith("/v2") ? 0.5 : 0.8,
+    priority: path === "" ? 1 : 0.8,
   }));
 
   const serviceRoutes = [

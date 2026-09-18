@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 
 type Tab = {
   id: string;
@@ -30,8 +29,8 @@ export function FilterTabs({
           onClick={() => onChange(tab.id)}
           className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ${
             activeTab === tab.id
-              ? "bg-[#006db1] text-white shadow-md"
-              : "bg-white text-warm-gray hover:bg-soft-beige"
+              ? "bg-brand text-white shadow-md"
+              : "bg-mist text-ink hover:bg-steel"
           }`}
         >
           {tab.label}

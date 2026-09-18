@@ -36,7 +36,7 @@ export const iugisPlans = [
       "Leitura de catálogo de produtos",
       "Identificação de Pix/boleto pendente",
     ],
-    cta: "Selecionar Commerce",
+    cta: "Selecionar Automações",
     href: "/contato?produto=iugis-automacoes",
   },
   {

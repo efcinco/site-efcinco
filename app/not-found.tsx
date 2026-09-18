@@ -1,30 +1,25 @@
-import { Button } from "@/components/ui/Button";
-import { Container } from "@/components/ui/Container";
+import { Button } from "@/components/v3/Button";
 
-function LegacyNotFound() {
+export default function NotFoundV3() {
   return (
-    <section className="relative overflow-hidden py-24 text-white">
-      <div className="hero-glow absolute inset-0" />
-      <div className="surface-grid absolute inset-0 opacity-25" aria-hidden />
-      <Container className="relative max-w-2xl text-center">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-soft">
-          404
+    <div className="flex min-h-[60vh] flex-col items-center justify-center px-5 py-20 text-center">
+      <div className="mx-auto max-w-md">
+        <p className="eyebrow">
+          Erro 404
         </p>
-        <h1 className="mt-4 font-display text-4xl tracking-tight">
+        <h1 className="mt-4 font-display text-5xl font-bold text-ink">
           Página não encontrada
         </h1>
-        <p className="mt-4 text-white/75">
-          O endereço pode ter mudado. Volte à home ou fale com a eFcinco.
+        <p className="mt-4 text-lg text-muted">
+          A página que você procura não existe ou foi movida
         </p>
-        <div className="mt-8 flex flex-wrap justify-center gap-3">
-          <Button href="/">Ir para a home</Button>
-          <Button href="/contato" variant="secondary">
-            Contato
+        <div className="mt-8 flex flex-wrap justify-center gap-4">
+          <Button href="/">Voltar ao início</Button>
+          <Button href="/contato" variant="outline">
+            Falar com suporte
           </Button>
         </div>
-      </Container>
-    </section>
+      </div>
+    </div>
   );
 }
-
-export { default } from "./v3/not-found";

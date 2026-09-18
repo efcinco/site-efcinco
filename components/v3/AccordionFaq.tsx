@@ -20,7 +20,7 @@ export function AccordionFaq({ faqs }: AccordionFaqProps) {
   };
 
   return (
-    <div className="divide-y divide-soft-beige">
+    <div className="divide-y divide-mist">
       {faqs.map((faq, index) => {
         const isOpen = openIndex === index;
         return (
@@ -34,7 +34,7 @@ export function AccordionFaq({ faqs }: AccordionFaqProps) {
               <span className="text-left">{faq.question}</span>
               <Plus
                 size={20}
-                className="accordion-icon text-gold"
+                className="accordion-icon text-accent"
                 aria-hidden="true"
               />
             </button>
@@ -43,7 +43,7 @@ export function AccordionFaq({ faqs }: AccordionFaqProps) {
               className={`accordion-content ${isOpen ? "open" : "closed"}`}
               role="region"
             >
-              <div className="pr-8 text-sm leading-relaxed text-warm-gray">
+              <div className="pr-8 text-sm leading-relaxed text-muted">
                 {faq.answer}
               </div>
             </div>

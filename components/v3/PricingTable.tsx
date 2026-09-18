@@ -13,14 +13,14 @@ export function PricingTable() {
     <section id="planos-iugis" className="py-20 sm:py-24">
       <div className="mx-auto max-w-[1440px] px-5 sm:px-10">
         <div className="text-center">
-          <p className="font-mono text-sm font-semibold uppercase tracking-wider text-gold">
+          <p className="eyebrow">
             Planos Iugis
           </p>
-          <h2 className="mt-4 font-display text-4xl font-bold tracking-tight text-luxury-black sm:text-5xl">
+          <h2 className="mt-4 font-display text-4xl font-bold tracking-tight text-ink sm:text-5xl">
             Escolha a potência da sua automação
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-warm-gray">
-            Três caminhos claros: inteligência pura, vendas online ou gestão complexa
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-muted">
+            Três caminhos: atendimento com IA, automações de venda ou uma operação sob medida.
           </p>
 
           {/* Toggle */}
@@ -58,28 +58,25 @@ export function PricingTable() {
                 key={plan.id}
                 className={`relative flex flex-col overflow-hidden rounded-2xl transition-all duration-300 ${
                   plan.popular
-                    ? "bg-white ring-2 ring-gold shadow-xl lg:-translate-y-2"
-                    : "bg-white ring-1 ring-soft-beige shadow-sm hover:shadow-lg"
+                    ? "theme-dark bg-white ring-2 ring-brand shadow-xl lg:-translate-y-2"
+                    : "bg-white ring-1 ring-mist shadow-sm hover:shadow-lg"
                 }`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                {plan.popular && (
-                  <div className="absolute -right-12 top-6 rotate-45 bg-gold px-12 py-1 text-xs font-bold uppercase tracking-wider text-luxury-black">
-                    Popular
+                <div className={`p-8 ${plan.popular ? "bg-ink text-white" : ""}`}>
+                  <div className="flex items-center justify-between gap-3">
+                    <p className={`font-display text-lg font-bold ${plan.popular ? "text-white" : "text-ink"}`}>
+                      {plan.name}
+                    </p>
+                    {plan.popular && (
+                      <span className="rounded-full bg-brand px-3 py-1 text-[.7rem] font-bold uppercase tracking-[.08em] text-white">
+                        Mais escolhido
+                      </span>
+                    )}
                   </div>
-                )}
-
-                <div className={`p-8 ${plan.popular ? "bg-luxury-black text-white" : ""}`}>
-                  <p
-                    className={`font-mono text-sm font-semibold uppercase tracking-wider ${
-                      plan.popular ? "text-gold" : "text-warm-gray"
-                    }`}
-                  >
-                    {plan.name}
-                  </p>
                   <p
                     className={`mt-2 text-sm ${
-                      plan.popular ? "text-white/80" : "text-warm-gray"
+                      plan.popular ? "text-white/80" : "text-muted"
                     }`}
                   >
                     {plan.description}
@@ -90,15 +87,15 @@ export function PricingTable() {
                       <>
                         <div className="flex items-baseline gap-2">
                           <span
-                            className={`font-mono text-4xl font-bold ${
-                              plan.popular ? "text-white" : "text-luxury-black"
+                            className={`font-display text-4xl font-extrabold tracking-tight ${
+                              plan.popular ? "text-white" : "text-ink"
                             }`}
                           >
                             R$ {displayPrice}
                           </span>
                           <span
                             className={`text-sm ${
-                              plan.popular ? "text-white/60" : "text-warm-gray"
+                              plan.popular ? "text-white/60" : "text-muted"
                             }`}
                           >
                             /mês
@@ -107,7 +104,7 @@ export function PricingTable() {
                         {isAnnual && (
                           <p
                             className={`mt-1 text-sm ${
-                              plan.popular ? "text-white/60" : "text-warm-gray"
+                              plan.popular ? "text-white/60" : "text-muted"
                             }`}
                           >
                             Faturado anualmente
@@ -116,8 +113,8 @@ export function PricingTable() {
                       </>
                     ) : (
                       <p
-                        className={`font-mono text-2xl font-bold ${
-                          plan.popular ? "text-white" : "text-luxury-black"
+                        className={`font-display text-2xl font-extrabold ${
+                          plan.popular ? "text-white" : "text-ink"
                         }`}
                       >
                         Sob consulta
@@ -142,12 +139,10 @@ export function PricingTable() {
                       <li key={idx} className="flex items-start gap-3 text-sm">
                         <Check
                           size={18}
-                          className={`mt-0.5 shrink-0 ${
-                            plan.popular ? "text-gold" : "text-gold"
-                          }`}
+                          className="mt-0.5 shrink-0 text-accent"
                         />
                         <span
-                          className={plan.popular ? "text-white/90" : "text-warm-gray"}
+                          className={plan.popular ? "text-white/90" : "text-muted"}
                         >
                           {feature}
                         </span>
@@ -160,11 +155,6 @@ export function PricingTable() {
           })}
         </div>
 
-        <div className="mt-12 text-center">
-          <button className="text-sm font-medium text-gold hover:underline">
-            + Ver comparação completa de features
-          </button>
-        </div>
       </div>
     </section>
   );
