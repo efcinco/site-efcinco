@@ -528,6 +528,7 @@ a[href][class*="rounded-lg"]:hover {
 }
 
 .store-promo-message {
+  min-width: 0;
   max-width: min(100%, 46rem);
   overflow: hidden;
   text-overflow: ellipsis;
@@ -539,7 +540,9 @@ a[href][class*="rounded-lg"]:hover {
   display: flex;
   align-items: center;
   gap: 0.65rem;
-  width: 100%;
+  width: min(100%, 34rem);
+  margin-left: auto;
+  margin-right: auto;
   border: 1px solid transparent;
   border-radius: 9999px;
   padding: 0.7rem 1rem;
@@ -570,6 +573,7 @@ a[href][class*="rounded-lg"]:hover {
 
 .store-icon-link {
   position: relative;
+  display: grid;
   height: 2.5rem;
   width: 2.5rem;
   place-items: center;
@@ -825,7 +829,7 @@ a[href][class*="rounded-lg"]:hover {
 }
 
 @media (max-width: 640px) {
-  .store-promo-bar { justify-content: flex-start; gap: 0.5rem; padding-right: 3.25rem; font-size: 0.65rem; }
+  .store-promo-bar { justify-content: space-between; gap: 0.5rem; padding-right: 1.25rem; font-size: 0.65rem; }
   .store-promo-bar a { white-space: nowrap; }
   .store-value-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .store-value-strip > div:nth-child(2) { border-right: 0; }

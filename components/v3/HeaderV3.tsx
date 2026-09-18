@@ -142,7 +142,8 @@ type MegaId = "vtex" | "uappi" | "wake" | "iugis" | "midia";
 
 export function HeaderV3() {
   const pathname = usePathname();
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [openedOnPath, setOpenedOnPath] = useState<string | null>(null);
+  const mobileOpen = openedOnPath === pathname;
   const [lockedMega, setLockedMega] = useState<MegaId | null>(null);
   const [promoIndex, setPromoIndex] = useState(0);
   const { count, openCart } = useProposalCart();
@@ -156,9 +157,7 @@ export function HeaderV3() {
     return () => window.clearInterval(timer);
   }, []);
 
-  useEffect(() => {
-    setMobileOpen(false);
-  }, [pathname]);
+  const closeMobileMenu = () => setOpenedOnPath(null);
 
   const closeMega = (id: MegaId) => {
     setLockedMega(id);
@@ -180,28 +179,28 @@ export function HeaderV3() {
           type="button"
           title={language === "pt" ? "View site in English" : "Ver site em português"}
           aria-label={language === "pt" ? "View site in English" : "Ver site em português"}
-          className="absolute right-4 flex items-center sm:right-6"
+          className="flex shrink-0 items-center sm:absolute sm:right-6"
           onClick={toggleLanguage}
         >
           {/* SVG flags: Windows renders emoji flags as "US"/"BR" text */}
-          <img
+          <Image
             src={language === "pt" ? "/brand/flags/us.svg" : "/brand/flags/br.svg"}
             alt={language === "pt" ? "United States" : "Brasil"}
             width={22}
             height={16}
-            className="h-4 w-[22px] rounded-[2px] object-cover shadow-sm ring-1 ring-white/30"
+            className="h-4 w-5.5 rounded-xs object-cover shadow-sm ring-1 ring-white/30"
             draggable={false}
           />
         </button>
       </div>
       <header className="sticky top-0 z-50 overflow-visible bg-luxury-black/95 text-white backdrop-blur-md">
-        <div className="relative mx-auto flex max-w-[1440px] items-center gap-2 px-5 py-3 sm:gap-4 sm:py-4 lg:px-10">
+        <div className="relative mx-auto flex max-w-360 items-center gap-2 px-5 py-3 sm:gap-4 sm:py-4 lg:px-10">
           <button
             type="button"
             className="shrink-0 rounded-full p-2.5 text-white hover:bg-white/10 lg:hidden"
             aria-expanded={mobileOpen}
             aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
-            onClick={() => setMobileOpen((value) => !value)}
+            onClick={() => setOpenedOnPath((current) => (current === pathname ? null : pathname))}
           >
             {mobileOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -210,14 +209,16 @@ export function HeaderV3() {
               src="/brand/efcinco-logo.svg"
               alt="eFcinco"
               width={230}
-              height={53}
-              className="h-auto w-[148px] sm:w-[190px] lg:w-[230px]"
+              height={51}
+              className="aspect-2432/544 h-auto w-37 sm:w-47.5 lg:w-57.5"
+              style={{ height: "auto" }}
+              sizes="(min-width: 1024px) 230px, (min-width: 640px) 190px, 148px"
               priority
               unoptimized
             />
           </Link>
 
-          <SiteSearch className="relative z-[60] mx-2 hidden min-w-0 flex-1 md:block" />
+          <SiteSearch className="relative z-60 mx-2 hidden min-w-0 flex-1 md:block" />
 
           <div className="ml-auto flex shrink-0 items-center gap-1">
             <a href={`https://wa.me/${siteConfig.whatsapp}`} target="_blank" rel="noopener noreferrer" className="store-icon-link store-icon-link-dark hidden sm:grid" aria-label="Atendimento pelo WhatsApp" title="Atendimento pelo WhatsApp">
@@ -234,7 +235,7 @@ export function HeaderV3() {
         </div>
 
         <nav className="store-category-nav hidden lg:flex" aria-label="Categorias da loja">
-          <div className="mx-auto flex w-full max-w-[1440px] items-center overflow-x-auto px-6 xl:px-10">
+          <div className="mx-auto flex w-full max-w-360 items-center overflow-x-auto px-6 xl:px-10">
             <div
               className={`group/vtex relative${lockedMega === "vtex" ? " is-mega-locked" : ""}`}
               onMouseLeave={() => unlockMega("vtex")}
@@ -386,22 +387,22 @@ export function HeaderV3() {
 
         {mobileOpen && (
           <nav className="border-t border-soft-beige bg-white px-5 py-5 lg:hidden" aria-label="Menu móvel">
-            <SiteSearch className="relative block" mobile onNavigate={() => setMobileOpen(false)} />
+            <SiteSearch className="relative block" mobile onNavigate={() => closeMobileMenu()} />
             <div className="mt-5 grid gap-1">
-              <Link href="/servicos-vtex" title="Todos os serviços VTEX" className="store-mobile-link font-bold" onClick={() => setMobileOpen(false)}>Todos os serviços VTEX</Link>
-              {catalogLinks.map((link) => <StoreLink key={link.href} {...link} onNavigate={() => setMobileOpen(false)} />)}
-              <Link href="/servicos-uappi" title="Todos os serviços Uappi" className="mt-4 store-mobile-link font-bold" onClick={() => setMobileOpen(false)}>Todos os serviços Uappi</Link>
-              {uappiLinks.map((link) => <StoreLink key={link.href} {...link} onNavigate={() => setMobileOpen(false)} />)}
-              <Link href="/servicos-wake" title="Todos os serviços Wake" className="mt-4 store-mobile-link font-bold" onClick={() => setMobileOpen(false)}>Todos os serviços Wake</Link>
-              {wakeLinks.map((link) => <StoreLink key={link.href} {...link} onNavigate={() => setMobileOpen(false)} />)}
-              <Link href="/automacoes-iugis" title="Todas as automações Iugis" className="mt-4 store-mobile-link font-bold" onClick={() => setMobileOpen(false)}>Todas as automações Iugis</Link>
-              {iugisLinks.map((link) => <StoreLink key={link.href} {...link} onNavigate={() => setMobileOpen(false)} />)}
-              <Link href="/tracking-e-medicao" title="Tracking e medição" className="mt-4 store-mobile-link font-bold" onClick={() => setMobileOpen(false)}>Tracking e medição</Link>
-              {trackingLinks.map((link) => <StoreLink key={link.href} {...link} onNavigate={() => setMobileOpen(false)} />)}
-              <Link href="/google-ads-e-meta-ads" title="Google Ads e Meta Ads" className="mt-4 store-mobile-link font-bold" onClick={() => setMobileOpen(false)}>Google Ads e Meta Ads</Link>
-              {adsLinks.map((link) => <StoreLink key={link.href} {...link} onNavigate={() => setMobileOpen(false)} />)}
-              <Link href="/cases" title="Cases" className="store-mobile-link" onClick={() => setMobileOpen(false)}>Cases</Link>
-              <Link href="/contato" title="Ver proposta" className="mt-3 rounded-full bg-luxury-black px-5 py-3 text-center text-sm font-semibold text-white transition hover:bg-charcoal" onClick={() => setMobileOpen(false)}>Ver proposta{count > 0 ? ` (${count})` : ""}</Link>
+              <Link href="/servicos-vtex" title="Todos os serviços VTEX" className="store-mobile-link font-bold" onClick={() => closeMobileMenu()}>Todos os serviços VTEX</Link>
+              {catalogLinks.map((link) => <StoreLink key={link.href} {...link} onNavigate={() => closeMobileMenu()} />)}
+              <Link href="/servicos-uappi" title="Todos os serviços Uappi" className="mt-4 store-mobile-link font-bold" onClick={() => closeMobileMenu()}>Todos os serviços Uappi</Link>
+              {uappiLinks.map((link) => <StoreLink key={link.href} {...link} onNavigate={() => closeMobileMenu()} />)}
+              <Link href="/servicos-wake" title="Todos os serviços Wake" className="mt-4 store-mobile-link font-bold" onClick={() => closeMobileMenu()}>Todos os serviços Wake</Link>
+              {wakeLinks.map((link) => <StoreLink key={link.href} {...link} onNavigate={() => closeMobileMenu()} />)}
+              <Link href="/automacoes-iugis" title="Todas as automações Iugis" className="mt-4 store-mobile-link font-bold" onClick={() => closeMobileMenu()}>Todas as automações Iugis</Link>
+              {iugisLinks.map((link) => <StoreLink key={link.href} {...link} onNavigate={() => closeMobileMenu()} />)}
+              <Link href="/tracking-e-medicao" title="Tracking e medição" className="mt-4 store-mobile-link font-bold" onClick={() => closeMobileMenu()}>Tracking e medição</Link>
+              {trackingLinks.map((link) => <StoreLink key={link.href} {...link} onNavigate={() => closeMobileMenu()} />)}
+              <Link href="/google-ads-e-meta-ads" title="Google Ads e Meta Ads" className="mt-4 store-mobile-link font-bold" onClick={() => closeMobileMenu()}>Google Ads e Meta Ads</Link>
+              {adsLinks.map((link) => <StoreLink key={link.href} {...link} onNavigate={() => closeMobileMenu()} />)}
+              <Link href="/cases" title="Cases" className="store-mobile-link" onClick={() => closeMobileMenu()}>Cases</Link>
+              <Link href="/contato" title="Ver proposta" className="mt-3 rounded-full bg-luxury-black px-5 py-3 text-center text-sm font-semibold text-white transition hover:bg-charcoal" onClick={() => closeMobileMenu()}>Ver proposta{count > 0 ? ` (${count})` : ""}</Link>
             </div>
           </nav>
         )}
