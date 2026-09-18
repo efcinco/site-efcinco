@@ -22,8 +22,8 @@ export default function SobreV3Page() {
         <div className="mx-auto grid min-h-[44rem] max-w-[1440px] gap-10 px-5 py-12 sm:px-10 lg:grid-cols-[1.15fr_.85fr] lg:px-16 lg:py-16">
           <div className="flex flex-col justify-between">
             <div>
-              <p className="font-mono text-xs font-bold uppercase tracking-[.2em] text-gold">Desde {siteConfig.foundingYear} • e-commerce em movimento</p>
-              <h1 className="mt-7 max-w-4xl font-display text-5xl font-bold leading-[.88] tracking-[-.075em] sm:text-7xl lg:text-[6.5rem]">A loja não pode parar.<br /><span className="text-gold">A gente também não.</span></h1>
+              <p className="font-mono text-xs font-bold uppercase tracking-[.08em] text-gold">Desde {siteConfig.foundingYear} • e-commerce em movimento</p>
+              <h1 className="mt-7 max-w-4xl font-display text-5xl font-bold leading-[.92] tracking-[-.02em] sm:text-6xl xl:text-[5.5rem] xl:leading-[.88] xl:tracking-[-.02em]">A loja não pode parar.<br /><span className="text-gold">A gente também não.</span></h1>
               <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/70 sm:text-xl">A eFcinco é a parceira técnica para empresas que precisam transformar e-commerce em uma operação mais rápida, confiável e preparada para crescer.</p>
             </div>
             <div className="mt-10 flex flex-wrap gap-3">
@@ -35,7 +35,7 @@ export default function SobreV3Page() {
             <Image src="/images/team-v2.jpg" alt="Profissionais da eFcinco colaborando em uma operação de e-commerce" fill priority className="object-cover opacity-80" sizes="(max-width: 1024px) 100vw, 40vw" />
             <div className="absolute inset-0 bg-gradient-to-t from-luxury-black via-luxury-black/10 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-7">
-              <p className="font-mono text-xs font-bold uppercase tracking-[.16em] text-gold">O que nos move</p>
+              <p className="font-mono text-xs font-bold uppercase tracking-[.08em] text-gold">O que nos move</p>
               <p className="mt-3 max-w-sm text-2xl font-semibold leading-tight">Tirar complexidade da operação para abrir espaço para vender.</p>
             </div>
           </div>
@@ -54,8 +54,8 @@ export default function SobreV3Page() {
         <div className="mx-auto max-w-[1440px] px-5 sm:px-10">
           <div className="grid gap-10 lg:grid-cols-[.8fr_1.2fr]">
             <div>
-              <p className="font-mono text-xs font-bold uppercase tracking-[.16em] text-gold-hover">Nosso ponto de vista</p>
-              <h2 className="mt-4 font-display text-5xl font-bold leading-[.92] tracking-[-.06em] text-luxury-black">Não entregamos só uma interface bonita.</h2>
+              <p className="font-mono text-xs font-bold uppercase tracking-[.08em] text-gold-hover">Nosso ponto de vista</p>
+              <h2 className="mt-4 font-display text-5xl font-bold leading-[.92] tracking-[-.02em] text-luxury-black">Não entregamos só uma interface bonita.</h2>
             </div>
             <div className="text-lg leading-relaxed text-warm-gray">
               <p>Uma loja pode ter um layout impecável e ainda assim perder vendas por causa de um catálogo confuso, uma integração instável ou um checkout que não acompanha o ritmo da operação.</p>
@@ -76,8 +76,8 @@ export default function SobreV3Page() {
             <Image src="/images/collab-v2.jpg" alt="Colaboração entre estratégia e desenvolvimento na eFcinco" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 55vw" />
           </div>
           <div className="flex flex-col justify-center">
-            <p className="font-mono text-xs font-bold uppercase tracking-[.16em] text-gold-hover">Como trabalhamos</p>
-            <h2 className="mt-4 font-display text-5xl font-bold leading-[.92] tracking-[-.06em] text-luxury-black">Proximidade sem improviso.</h2>
+            <p className="font-mono text-xs font-bold uppercase tracking-[.08em] text-gold-hover">Como trabalhamos</p>
+            <h2 className="mt-4 font-display text-5xl font-bold leading-[.92] tracking-[-.02em] text-luxury-black">Proximidade sem improviso.</h2>
             <div className="mt-8 grid gap-5">
               {[
                 ["Diagnóstico que vai além do briefing", "Entendemos negócio, jornada, operação e os riscos que não podem chegar ao go-live."],
@@ -92,8 +92,8 @@ export default function SobreV3Page() {
       <section className="store-section bg-luxury-black text-white">
         <div className="mx-auto grid max-w-[1440px] gap-10 px-5 sm:px-10 lg:grid-cols-[.8fr_1.2fr]">
           <div>
-            <p className="font-mono text-xs font-bold uppercase tracking-[.16em] text-gold">Experiência aplicada</p>
-            <h2 className="mt-4 font-display text-5xl font-bold leading-[.92] tracking-[-.06em]">Uma trajetória construída ao lado de quem vende todos os dias.</h2>
+            <p className="font-mono text-xs font-bold uppercase tracking-[.08em] text-gold">Experiência aplicada</p>
+            <h2 className="mt-4 font-display text-5xl font-bold leading-[.92] tracking-[-.02em]">Uma trajetória construída ao lado de quem vende todos os dias.</h2>
           </div>
           <div className="flex flex-col justify-end">
             <p className="max-w-2xl text-lg leading-relaxed text-white/70">A experiência da eFcinco inclui projetos para operações de moda, varejo, tecnologia, climatização e casa — de implantações e migrações a evoluções contínuas de e-commerce.</p>
@@ -112,8 +112,8 @@ export default function SobreV3Page() {
       <section className="store-section bg-[#006db1] text-white">
         <div className="mx-auto grid max-w-[1440px] gap-10 px-5 sm:px-10 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>
-            <div className="flex items-center gap-3 text-white/80"><ShieldCheck size={21} /><span className="font-mono text-xs font-bold uppercase tracking-[.16em]">Próximo passo</span></div>
-            <h2 className="mt-5 max-w-4xl font-display text-5xl font-bold leading-[.92] tracking-[-.06em] sm:text-7xl">Seu e-commerce não precisa crescer no escuro.</h2>
+            <div className="flex items-center gap-3 text-white/80"><ShieldCheck size={21} /><span className="font-mono text-xs font-bold uppercase tracking-[.08em]">Próximo passo</span></div>
+            <h2 className="mt-5 max-w-4xl font-display text-5xl font-bold leading-[.92] tracking-[-.02em] sm:text-7xl">Seu e-commerce não precisa crescer no escuro.</h2>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/80">Vamos transformar o que hoje trava a operação em uma rota clara de evolução.</p>
           </div>
           <Link href="/contato" title="Começar uma conversa" className="inline-flex items-center justify-center rounded-full bg-white px-7 py-4 text-sm font-bold text-[#006db1] transition hover:bg-soft-beige">Começar uma conversa <ArrowRight size={17} className="ml-2" /></Link>
@@ -123,20 +123,21 @@ export default function SobreV3Page() {
       <section className="bg-white px-5 py-14 sm:px-10">
         <div className="mx-auto grid max-w-[1440px] gap-8 border-t border-soft-beige pt-10 lg:grid-cols-[.55fr_1fr]">
           <div>
-            <p className="font-mono text-xs font-bold uppercase tracking-[.16em] text-[#006db1]">Sobre nós</p>
+            <p className="font-mono text-xs font-bold uppercase tracking-[.08em] text-[#006db1]">Sobre nós</p>
             <div className="mt-5 inline-flex bg-luxury-black px-5 py-4">
               <Image
-                src="/brand/efcinco-logo.png"
+                src="/brand/efcinco-logo.svg"
                 alt="eFcinco"
                 width={180}
                 height={41}
                 className="w-36"
                 style={{ height: "auto" }}
+                unoptimized
               />
             </div>
           </div>
           <div>
-            <p className="font-display text-3xl font-bold leading-tight tracking-[-.05em] text-luxury-black sm:text-4xl">A eFcinco une estratégia, desenvolvimento e automação para que o e-commerce opere com mais clareza, velocidade e confiança.</p>
+            <p className="font-display text-3xl font-bold leading-tight tracking-[-.02em] text-luxury-black sm:text-4xl">A eFcinco une estratégia, desenvolvimento e automação para que o e-commerce opere com mais clareza, velocidade e confiança.</p>
             <p className="mt-5 max-w-3xl text-base leading-relaxed text-warm-gray">Somos uma parceira técnica para operações que precisam crescer sem criar novas camadas de complexidade. Da plataforma ao WhatsApp, ajudamos cada frente da jornada a trabalhar a favor da venda.</p>
           </div>
         </div>
@@ -146,9 +147,9 @@ export default function SobreV3Page() {
 }
 
 function Stat({ label, value, text }: { label: string; value: string; text: string }) {
-  return <div className="p-7 sm:p-9"><p className="font-mono text-[.65rem] font-bold uppercase tracking-[.16em] text-warm-gray">{label}</p><p className="mt-4 font-display text-3xl font-bold tracking-[-.05em] text-luxury-black">{value}</p><p className="mt-2 max-w-xs text-sm leading-relaxed text-warm-gray">{text}</p></div>;
+  return <div className="p-7 sm:p-9"><p className="font-mono text-[.65rem] font-bold uppercase tracking-[.08em] text-warm-gray">{label}</p><p className="mt-4 font-display text-3xl font-bold tracking-[-.02em] text-luxury-black">{value}</p><p className="mt-2 max-w-xs text-sm leading-relaxed text-warm-gray">{text}</p></div>;
 }
 
 function Capability({ icon, number, title, text }: { icon: ReactNode; number: string; title: string; text: string }) {
-  return <article className="bg-white p-7 sm:p-9"><div className="flex items-center justify-between text-[#006db1]"><span>{icon}</span><span className="font-mono text-xs font-bold">{number}</span></div><h3 className="mt-12 font-display text-3xl font-bold tracking-[-.05em] text-luxury-black">{title}</h3><p className="mt-4 text-sm leading-relaxed text-warm-gray">{text}</p></article>;
+  return <article className="bg-white p-7 sm:p-9"><div className="flex items-center justify-between text-[#006db1]"><span>{icon}</span><span className="font-mono text-xs font-bold">{number}</span></div><h3 className="mt-12 font-display text-3xl font-bold tracking-[-.02em] text-luxury-black">{title}</h3><p className="mt-4 text-sm leading-relaxed text-warm-gray">{text}</p></article>;
 }

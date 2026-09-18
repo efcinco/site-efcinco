@@ -44,8 +44,8 @@ export function FooterV3() {
         <div className="mx-auto max-w-[1440px] px-5 sm:px-10">
           <div className="store-newsletter grid items-center gap-8 lg:grid-cols-[1fr_.85fr]">
             <div className="relative">
-              <p className="font-mono text-xs font-bold uppercase tracking-[.16em] text-[#d3d9de]">eFcinco insider</p>
-              <h2 className="mt-4 max-w-lg font-display text-4xl font-bold leading-none tracking-[-.05em] text-white sm:text-5xl">
+              <p className="font-mono text-xs font-bold uppercase tracking-[.08em] text-[#d3d9de]">eFcinco insider</p>
+              <h2 className="mt-4 max-w-lg font-display text-4xl font-bold leading-none tracking-[-.02em] text-white sm:text-5xl">
                 Conteúdo técnico, sem cara de conteúdo genérico.
               </h2>
             </div>
@@ -60,12 +60,13 @@ export function FooterV3() {
             <div className="flex flex-col items-start">
               <Link href="/" title="Ir para a home" className="inline-block transition hover:opacity-80">
                 <Image
-                  src="/brand/efcinco-logo.png"
+                  src="/brand/efcinco-logo.svg"
                   alt="eFcinco"
                   width={180}
                   height={41}
                   className="h-9 w-auto"
                   style={{ width: "auto", height: "auto" }}
+                  unoptimized
                 />
               </Link>
               <Link

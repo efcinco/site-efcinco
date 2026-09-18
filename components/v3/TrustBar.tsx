@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 type TrustItem = {
   type: "badge" | "logo";
@@ -21,7 +21,7 @@ export function TrustBar() {
   const [isPaused, setIsPaused] = useState(false);
 
   return (
-    <div className="border-b border-soft-beige bg-[var(--gold)] py-3 overflow-hidden">
+    <div className="relative overflow-hidden border-b border-soft-beige bg-[var(--gold)] py-3 before:pointer-events-none before:absolute before:inset-y-0 before:left-0 before:z-10 before:w-10 before:bg-gradient-to-r before:from-[var(--gold)] before:to-transparent after:pointer-events-none after:absolute after:inset-y-0 after:right-0 after:z-10 after:w-10 after:bg-gradient-to-l after:from-[var(--gold)] after:to-transparent">
       <div
         className="flex gap-8"
         onMouseEnter={() => setIsPaused(true)}

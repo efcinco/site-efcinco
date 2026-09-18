@@ -14,7 +14,7 @@ export default function BlogV3Page() {
     <section className="store-section bg-cream">
       <div className="mx-auto max-w-[1440px] px-5 sm:px-10">
         <div className="store-section-heading">
-          <div><p className="font-mono text-xs font-bold uppercase tracking-[.16em] text-gold-hover">Editorial eFcinco</p><h1 className="mt-3">Conteúdo para escolher melhor a próxima solução.</h1></div>
+          <div><p className="font-mono text-xs font-bold uppercase tracking-[.08em] text-gold-hover">Editorial eFcinco</p><h1 className="mt-3">Conteúdo para escolher melhor a próxima solução.</h1></div>
           <Link href="/contato" title="Montar proposta" className="hidden rounded-full bg-luxury-black px-5 py-3 text-sm font-bold text-white transition hover:bg-charcoal sm:block">Montar proposta</Link>
         </div>
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">

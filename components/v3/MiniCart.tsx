@@ -30,7 +30,7 @@ export function MiniCart() {
         <div className="flex items-start justify-between border-b border-soft-beige p-6">
           <div>
             <span className="inline-flex items-center gap-2 text-sm font-bold text-success"><CheckCircle2 size={18} /> Serviço inserido</span>
-            <h2 id="minicart-title" className="mt-2 font-display text-3xl font-bold tracking-[-.04em] text-luxury-black">Sua proposta está pronta.</h2>
+            <h2 id="minicart-title" className="mt-2 font-display text-3xl font-bold tracking-[-.02em] text-luxury-black">Sua proposta está pronta.</h2>
             <p className="mt-2 text-sm font-semibold text-[#006db1]">{count} {count === 1 ? "serviço selecionado" : "serviços selecionados"}</p>
           </div>
           <button type="button" onClick={closeCart} className="rounded-full p-2 text-warm-gray transition hover:bg-soft-beige hover:text-luxury-black" aria-label="Fechar minicart"><X size={20} /></button>

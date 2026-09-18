@@ -24,14 +24,7 @@ export function PricingTable() {
           </p>
 
           {/* Toggle */}
-          <div className="mt-8 inline-flex items-center gap-3">
-            <span
-              className={`text-sm font-medium transition ${
-                !isAnnual ? "text-luxury-black" : "text-warm-gray"
-              }`}
-            >
-              Mensal
-            </span>
+          <div className="mt-8 inline-flex flex-wrap items-center justify-center gap-3">
             <button
               onClick={() => setIsAnnual(!isAnnual)}
               className="pricing-toggle"
@@ -46,15 +39,8 @@ export function PricingTable() {
                 Anual
               </span>
             </button>
-            <span
-              className={`text-sm font-medium transition ${
-                isAnnual ? "text-luxury-black" : "text-warm-gray"
-              }`}
-            >
-              Anual
-            </span>
             {isAnnual && (
-              <Badge variant="success" className="ml-2 animate-scale-in">
+              <Badge variant="success" className="animate-scale-in">
                 Economize 20%
               </Badge>
             )}
@@ -72,7 +58,7 @@ export function PricingTable() {
                 key={plan.id}
                 className={`relative flex flex-col overflow-hidden rounded-2xl transition-all duration-300 ${
                   plan.popular
-                    ? "ring-2 ring-gold shadow-xl scale-105 lg:scale-110"
+                    ? "bg-white ring-2 ring-gold shadow-xl lg:-translate-y-2"
                     : "bg-white ring-1 ring-soft-beige shadow-sm hover:shadow-lg"
                 }`}
                 style={{ animationDelay: `${index * 100}ms` }}

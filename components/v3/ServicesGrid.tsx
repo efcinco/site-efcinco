@@ -46,7 +46,7 @@ export function ServicesGrid() {
       <div className="mx-auto max-w-[1440px] px-5 sm:px-10">
         <div className="store-section-heading">
           <div>
-            <p className="font-mono text-xs font-bold uppercase tracking-[.16em] text-gold-hover">
+            <p className="font-mono text-xs font-bold uppercase tracking-[.08em] text-gold-hover">
               Vitrine de soluções
             </p>
             <h2 className="mt-3">Produtos técnicos para cada momento da sua loja.</h2>

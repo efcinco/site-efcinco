@@ -29,8 +29,8 @@ export function ProposalCheckout() {
   return (
     <div className="grid gap-8 lg:grid-cols-[1fr_.72fr] lg:items-start">
       <form onSubmit={handleSubmit} className="bg-white p-6 ring-1 ring-soft-beige sm:p-8">
-        <p className="font-mono text-xs font-bold uppercase tracking-[.16em] text-gold-hover">Etapa 1 de 1</p>
-        <h1 className="mt-3 font-display text-4xl font-bold tracking-[-.05em] text-luxury-black">Finalizar proposta</h1>
+        <p className="font-mono text-xs font-bold uppercase tracking-[.08em] text-gold-hover">Etapa 1 de 1</p>
+        <h1 className="mt-3 font-display text-4xl font-bold tracking-[-.02em] text-luxury-black">Finalizar proposta</h1>
         <p className="mt-3 text-sm leading-relaxed text-warm-gray">Deixe seus dados. Um especialista recebe sua seleção e responde com o melhor caminho técnico.</p>
         <div className="mt-8 grid gap-5 sm:grid-cols-2">
           <Field label="Nome" name="nome" required />
@@ -53,7 +53,7 @@ export function ProposalCheckout() {
 
       <aside className="bg-luxury-black p-6 text-white sm:p-8">
         <div className="flex items-center justify-between border-b border-white/15 pb-5">
-          <div><p className="font-mono text-xs font-bold uppercase tracking-[.16em] text-gold">Sua proposta</p><h2 className="mt-2 font-display text-2xl font-bold">{count} {count === 1 ? "solução" : "soluções"} selecionada{count === 1 ? "" : "s"}</h2></div>
+          <div><p className="font-mono text-xs font-bold uppercase tracking-[.08em] text-gold">Sua proposta</p><h2 className="mt-2 font-display text-2xl font-bold text-balance break-keep">{count === 1 ? "1 solução selecionada" : `${count} soluções selecionadas`}</h2></div>
           <Package className="text-gold" />
         </div>
         {items.length ? <ul className="divide-y divide-white/10">

@@ -33,7 +33,7 @@ export function NewsletterForm({ inverted: _inverted = false }: { inverted?: boo
           />
           <button
             type="submit"
-            className="min-h-12 rounded-full bg-gold px-6 py-3 text-sm font-bold text-luxury-black transition hover:bg-gold-hover"
+            className="min-h-12 rounded-full bg-[#006db1] px-6 py-3 text-sm font-bold text-white transition hover:bg-[#005a93]"
             aria-label="Quero receber"
           >
             <span className="inline-flex items-center gap-2">

@@ -43,11 +43,11 @@ export function CatalogProduct({
         <div className="mx-auto grid max-w-[1440px] gap-8 px-5 sm:px-10 lg:grid-cols-[1.08fr_.92fr] lg:gap-16">
           <div className="relative aspect-[1.08/1] overflow-hidden bg-soft-beige">
             <Image src={service.image} alt={service.title} fill priority className="object-cover" sizes="(max-width: 1024px) 100vw, 55vw" />
-            <span className="absolute left-5 top-5 rounded-full bg-white px-4 py-2 text-xs font-bold uppercase tracking-[.14em] text-luxury-black shadow-sm">{badge}</span>
+            <span className="absolute left-5 top-5 rounded-full bg-white px-4 py-2 text-xs font-bold uppercase tracking-[.08em] text-luxury-black shadow-sm">{badge}</span>
           </div>
           <div className="flex flex-col py-2">
-            <p className="font-mono text-xs font-bold uppercase tracking-[.16em] text-gold-hover">{catalogName} · {service.keyword}</p>
-            <h1 className="mt-4 font-display text-4xl font-bold leading-[.95] tracking-[-.06em] text-luxury-black sm:text-6xl">{service.title}</h1>
+            <p className="font-mono text-xs font-bold uppercase tracking-[.08em] text-gold-hover">{catalogName} · {service.keyword}</p>
+            <h1 className="mt-4 font-display text-4xl font-bold leading-[.95] tracking-[-.02em] text-luxury-black sm:text-6xl">{service.title}</h1>
             <div className="mt-5 flex items-center gap-3"><Rating value={4.9} showValue size={16} /><span className="text-sm text-warm-gray">• solução com diagnóstico personalizado</span></div>
             <p className="mt-6 text-lg leading-relaxed text-warm-gray">{service.answer}</p>
             <div className="mt-8 border-y border-soft-beige py-5">
@@ -71,8 +71,8 @@ export function CatalogProduct({
       <section className="store-section bg-cream">
         <div className="mx-auto grid max-w-[1440px] gap-10 px-5 sm:px-10 lg:grid-cols-[.8fr_1.2fr]">
           <div>
-            <p className="font-mono text-xs font-bold uppercase tracking-[.16em] text-gold-hover">O que está incluso</p>
-            <h2 className="mt-3 font-display text-4xl font-bold leading-none tracking-[-.05em]">Uma solução pronta para medir e gerar resultado.</h2>
+            <p className="font-mono text-xs font-bold uppercase tracking-[.08em] text-gold-hover">O que está incluso</p>
+            <h2 className="mt-3 font-display text-4xl font-bold leading-none tracking-[-.02em]">Uma solução pronta para medir e gerar resultado.</h2>
           </div>
           <ul className="grid gap-4 sm:grid-cols-2">
             {service.deliverables.map((item) => (
@@ -88,7 +88,7 @@ export function CatalogProduct({
         <div className="mx-auto max-w-[1440px] px-5 sm:px-10">
           <div className="store-section-heading">
             <div>
-              <p className="font-mono text-xs font-bold uppercase tracking-[.16em] text-gold-hover">Complete sua proposta</p>
+              <p className="font-mono text-xs font-bold uppercase tracking-[.08em] text-gold-hover">Complete sua proposta</p>
               <h2 className="mt-3">Quem leva este serviço também olha.</h2>
             </div>
             <Link href={catalogPath} title={`Voltar a ${catalogName}`} className="text-sm font-bold underline underline-offset-4 transition hover:text-[#006db1]">Voltar a {catalogName}</Link>
@@ -99,7 +99,7 @@ export function CatalogProduct({
                 <div className="relative aspect-[1.4] overflow-hidden bg-soft-beige">
                   <Image src={item.image} alt={item.title} fill className="object-cover transition duration-500 group-hover:scale-105" sizes="33vw" />
                 </div>
-                <p className="mt-5 font-mono text-[.65rem] font-bold uppercase tracking-[.14em] text-warm-gray">Solução complementar</p>
+                <p className="mt-5 font-mono text-[.65rem] font-bold uppercase tracking-[.08em] text-warm-gray">Solução complementar</p>
                 <h3 className="mt-2 font-display text-2xl font-bold text-luxury-black">{item.shortTitle}</h3>
                 <span className="mt-5 inline-flex items-center gap-1 text-sm font-bold text-gold-hover">Ver serviço <ChevronRight size={15} /></span>
               </Link>

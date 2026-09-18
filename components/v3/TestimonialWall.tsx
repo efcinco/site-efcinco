@@ -5,7 +5,7 @@ export function TestimonialWall() {
     <section className="bg-cream py-14 sm:py-16">
       <div className="mx-auto max-w-[1440px] px-5 sm:px-10">
         <div>
-          <p className="font-mono text-[.65rem] font-semibold uppercase tracking-[.16em] text-warm-gray/70">
+          <p className="font-mono text-[.65rem] font-semibold uppercase tracking-[.08em] text-warm-gray/70">
             Depoimentos
           </p>
           <h2 className="mt-2 font-display text-2xl font-semibold tracking-tight text-luxury-black sm:text-3xl">

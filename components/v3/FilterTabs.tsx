@@ -28,9 +28,9 @@ export function FilterTabs({
           role="tab"
           aria-selected={activeTab === tab.id}
           onClick={() => onChange(tab.id)}
-          className={`rounded-lg px-4 py-2 text-sm font-medium transition-all duration-300 ${
+          className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ${
             activeTab === tab.id
-              ? "bg-gold text-luxury-black shadow-md"
+              ? "bg-[#006db1] text-white shadow-md"
               : "bg-white text-warm-gray hover:bg-soft-beige"
           }`}
         >

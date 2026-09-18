@@ -195,10 +195,10 @@ export function HeaderV3() {
         </button>
       </div>
       <header className="sticky top-0 z-50 overflow-visible bg-luxury-black/95 text-white backdrop-blur-md">
-        <div className="relative mx-auto flex max-w-[1440px] items-center gap-4 px-5 py-4 lg:px-10">
+        <div className="relative mx-auto flex max-w-[1440px] items-center gap-2 px-5 py-3 sm:gap-4 sm:py-4 lg:px-10">
           <button
             type="button"
-            className="rounded-full p-2.5 text-white hover:bg-white/10 lg:hidden"
+            className="shrink-0 rounded-full p-2.5 text-white hover:bg-white/10 lg:hidden"
             aria-expanded={mobileOpen}
             aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
             onClick={() => setMobileOpen((value) => !value)}
@@ -207,26 +207,26 @@ export function HeaderV3() {
           </button>
           <Link href="/" className="shrink-0 transition hover:opacity-80" aria-label="eFcinco — loja de soluções" title="Ir para a home">
             <Image
-              src="/brand/efcinco-logo.png"
+              src="/brand/efcinco-logo.svg"
               alt="eFcinco"
               width={230}
-              height={52}
-              className="h-auto w-[230px]"
-              style={{ width: 230, height: "auto" }}
+              height={53}
+              className="h-auto w-[148px] sm:w-[190px] lg:w-[230px]"
               priority
+              unoptimized
             />
           </Link>
 
-          <SiteSearch className="absolute left-1/2 z-[60] hidden w-full max-w-[34rem] -translate-x-1/2 md:block" />
+          <SiteSearch className="relative z-[60] mx-2 hidden min-w-0 flex-1 md:block" />
 
-          <div className="ml-auto flex items-center gap-1">
-            <a href={`https://wa.me/${siteConfig.whatsapp}`} target="_blank" rel="noopener noreferrer" className="store-icon-link store-icon-link-dark hidden sm:flex" aria-label="Atendimento pelo WhatsApp" title="Atendimento pelo WhatsApp">
+          <div className="ml-auto flex shrink-0 items-center gap-1">
+            <a href={`https://wa.me/${siteConfig.whatsapp}`} target="_blank" rel="noopener noreferrer" className="store-icon-link store-icon-link-dark hidden sm:grid" aria-label="Atendimento pelo WhatsApp" title="Atendimento pelo WhatsApp">
               <Phone size={19} />
             </a>
-            <Link href="/cases" className="store-icon-link store-icon-link-dark hidden sm:flex" aria-label="Cases favoritos" title="Cases">
+            <Link href="/cases" className="store-icon-link store-icon-link-dark hidden sm:grid" aria-label="Cases favoritos" title="Cases">
               <Heart size={19} />
             </Link>
-            <button type="button" onClick={openCart} className="store-icon-link store-icon-link-dark relative" aria-label="Ver proposta">
+            <button type="button" onClick={openCart} className="store-icon-link store-icon-link-dark relative grid" aria-label="Ver proposta">
               <ShoppingBag size={19} />
               {count > 0 && <span className="store-cart-count">{count}</span>}
             </button>
@@ -234,12 +234,12 @@ export function HeaderV3() {
         </div>
 
         <nav className="store-category-nav hidden lg:flex" aria-label="Categorias da loja">
-          <div className="mx-auto flex w-full max-w-[1440px] items-center px-10">
+          <div className="mx-auto flex w-full max-w-[1440px] items-center overflow-x-auto px-6 xl:px-10">
             <div
               className={`group/vtex relative${lockedMega === "vtex" ? " is-mega-locked" : ""}`}
               onMouseLeave={() => unlockMega("vtex")}
             >
-              <Link href="/servicos-vtex" title="Serviços VTEX" className="store-category-link" onClick={() => closeMega("vtex")}>Serviços VTEX <ChevronDown size={15} /></Link>
+              <Link href="/servicos-vtex" title="Serviços VTEX" className="store-category-link inline-flex" onClick={() => closeMega("vtex")}>Serviços VTEX <ChevronDown size={15} /></Link>
               <div className="store-mega-menu">
                 <div className="grid grid-cols-[1fr_1fr_1.1fr] gap-8 p-7">
                   <div>
@@ -255,7 +255,7 @@ export function HeaderV3() {
                       <Image src="/vtex-Logo.svg" alt="VTEX" width={305} height={110} className={megaBrandLogoClass} />
                     </a>
                     <Link href="/servicos-vtex" title="Ver vitrine VTEX" className="relative mt-4 block transition hover:opacity-80" onClick={() => closeMega("vtex")}>
-                      <span className="text-xs font-semibold uppercase tracking-[0.18em] text-gold">Mais procurado</span>
+                      <span className="text-xs font-semibold uppercase tracking-[.08em] text-gold">Mais procurado</span>
                       <strong className="mt-3 block text-xl">Soluções para e-commerce</strong>
                       <span className="mt-5 inline-block text-sm">Ver vitrine VTEX →</span>
                     </Link>
@@ -267,7 +267,7 @@ export function HeaderV3() {
               className={`group/uappi relative${lockedMega === "uappi" ? " is-mega-locked" : ""}`}
               onMouseLeave={() => unlockMega("uappi")}
             >
-              <Link href="/servicos-uappi" title="Serviços Uappi" className="store-category-link" onClick={() => closeMega("uappi")}>Serviços Uappi <ChevronDown size={15} /></Link>
+              <Link href="/servicos-uappi" title="Serviços Uappi" className="store-category-link inline-flex" onClick={() => closeMega("uappi")}>Serviços Uappi <ChevronDown size={15} /></Link>
               <div className="store-mega-menu">
                 <div className="grid grid-cols-[1fr_1fr_1.1fr] gap-8 p-7">
                   <div>
@@ -280,10 +280,10 @@ export function HeaderV3() {
                   </div>
                   <div className="group relative min-h-48 overflow-hidden rounded-xl bg-charcoal p-6 text-white">
                     <a href="https://uappi.com.br/" target="_blank" rel="noopener noreferrer nofollow" aria-label="Visitar o site da Uappi" title="Conheça a Uappi" className="relative flex h-11 w-32 items-center">
-                      <Image src="/uappi-logo..svg" alt="Uappi" width={78} height={21} className={megaBrandLogoClass} />
+                      <Image src="/uappi-logo.svg" alt="Uappi" width={78} height={21} className={megaBrandLogoClass} unoptimized />
                     </a>
                     <Link href="/servicos-uappi" title="Ver todos os serviços Uappi" className="relative mt-4 block transition hover:opacity-80" onClick={() => closeMega("uappi")}>
-                      <span className="text-xs font-semibold uppercase tracking-[0.18em] text-gold">Vitrine Uappi</span>
+                      <span className="text-xs font-semibold uppercase tracking-[.08em] text-gold">Vitrine Uappi</span>
                       <strong className="mt-3 block text-xl">Soluções para sua operação</strong>
                       <span className="mt-5 inline-block text-sm">Ver todos os serviços →</span>
                     </Link>
@@ -295,7 +295,7 @@ export function HeaderV3() {
               className={`group/wake relative${lockedMega === "wake" ? " is-mega-locked" : ""}`}
               onMouseLeave={() => unlockMega("wake")}
             >
-              <Link href="/servicos-wake" title="Serviços Wake" className="store-category-link" onClick={() => closeMega("wake")}>Serviços Wake <ChevronDown size={15} /></Link>
+              <Link href="/servicos-wake" title="Serviços Wake" className="store-category-link inline-flex" onClick={() => closeMega("wake")}>Serviços Wake <ChevronDown size={15} /></Link>
               <div className="store-mega-menu">
                 <div className="grid grid-cols-[1fr_1fr_1.1fr] gap-8 p-7">
                   <div>
@@ -311,7 +311,7 @@ export function HeaderV3() {
                       <Image src="/wake-logo.png" alt="Wake" width={215} height={68} className={megaBrandLogoClass} />
                     </a>
                     <Link href="/servicos-wake" title="Ver todos os serviços Wake" className="relative mt-4 block transition hover:opacity-80" onClick={() => closeMega("wake")}>
-                      <span className="text-xs font-semibold uppercase tracking-[0.18em] text-gold">Vitrine Wake</span>
+                      <span className="text-xs font-semibold uppercase tracking-[.08em] text-gold">Vitrine Wake</span>
                       <strong className="mt-3 block text-xl">Soluções para sua operação</strong>
                       <span className="mt-5 inline-block text-sm">Ver todos os serviços →</span>
                     </Link>
@@ -323,7 +323,7 @@ export function HeaderV3() {
               className={`group/iugis relative${lockedMega === "iugis" ? " is-mega-locked" : ""}`}
               onMouseLeave={() => unlockMega("iugis")}
             >
-              <Link href="/automacoes-iugis" title="Automações Iugis" className="store-category-link" onClick={() => closeMega("iugis")}>Automações Iugis <ChevronDown size={15} /></Link>
+              <Link href="/automacoes-iugis" title="Automações Iugis" className="store-category-link inline-flex" onClick={() => closeMega("iugis")}>Automações Iugis <ChevronDown size={15} /></Link>
               <div className="store-mega-menu">
                 <div className="grid grid-cols-[1fr_1.1fr] gap-8 p-7">
                   <div>
@@ -333,7 +333,7 @@ export function HeaderV3() {
                   <div className="group relative min-h-48 overflow-hidden rounded-xl bg-charcoal p-6 text-white">
                     <Image src="/brand/iugis-logo.png" alt="Iugis" width={124} height={38} className="h-auto w-28" style={{ width: "auto", height: "auto" }} />
                     <Link href="/automacoes-iugis" title="Conhecer a Iugis" className="relative mt-5 block transition hover:opacity-80" onClick={() => closeMega("iugis")}>
-                      <span className="text-xs font-semibold uppercase tracking-[0.18em] text-gold">Venda no WhatsApp</span>
+                      <span className="text-xs font-semibold uppercase tracking-[.08em] text-gold">Venda no WhatsApp</span>
                       <strong className="mt-3 block text-xl">Recupere oportunidades sem esforço manual.</strong>
                       <span className="mt-5 inline-block text-sm">Conhecer a Iugis →</span>
                     </Link>
@@ -345,7 +345,7 @@ export function HeaderV3() {
               className={`group/midia${lockedMega === "midia" ? " is-mega-locked" : ""}`}
               onMouseLeave={() => unlockMega("midia")}
             >
-              <Link href="/tracking-e-medicao" title="Tracking e Ads" className="store-category-link" onClick={() => closeMega("midia")}>Tracking e Ads <ChevronDown size={15} /></Link>
+              <Link href="/tracking-e-medicao" title="Tracking e Ads" className="store-category-link inline-flex" onClick={() => closeMega("midia")}>Tracking e Ads <ChevronDown size={15} /></Link>
               <div className="store-mega-menu">
                 <div className="grid grid-cols-[1fr_1fr_1.1fr] gap-8 p-7">
                   <div>
@@ -368,7 +368,7 @@ export function HeaderV3() {
                       </span>
                     </div>
                     <Link href="/tracking-e-medicao" title="Ver tracking e Ads" className="relative mt-4 block transition hover:opacity-80" onClick={() => closeMega("midia")}>
-                      <span className="text-xs font-semibold uppercase tracking-[0.18em] text-gold">Tracking e Ads</span>
+                      <span className="text-xs font-semibold uppercase tracking-[.08em] text-gold">Tracking e Ads</span>
                       <strong className="mt-3 block text-xl">Medição e mídia no mesmo número</strong>
                       <span className="mt-5 inline-block text-sm">Ver todos os serviços →</span>
                     </Link>
@@ -376,9 +376,9 @@ export function HeaderV3() {
                 </div>
               </div>
             </div>
-            <Link className="store-category-link" href="/#colecao-cases" title="Cases">Cases</Link>
-            <Link className="store-category-link" href="/blog" title="Conteúdos">Conteúdos</Link>
-            <Link href="/contato" title="Solicitar proposta" className="ml-auto rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-[#006db1] shadow-sm transition hover:bg-white/90">
+            <Link className="store-category-link hidden xl:inline-flex" href="/#colecao-cases" title="Cases">Cases</Link>
+            <Link className="store-category-link hidden xl:inline-flex" href="/blog" title="Conteúdos">Conteúdos</Link>
+            <Link href="/contato" title="Solicitar proposta" className="ml-auto shrink-0 rounded-full bg-white px-4 py-2 text-sm font-semibold text-[#006db1] shadow-sm transition hover:bg-white/90 xl:px-5 xl:py-2.5">
               Solicitar proposta
             </Link>
           </div>
@@ -457,7 +457,7 @@ function SiteSearch({ className, mobile = false, onNavigate }: { className: stri
         <div id={resultsId} role="listbox" className="absolute left-0 top-[calc(100%+0.5rem)] z-50 w-full min-w-80 overflow-hidden rounded-xl border border-soft-beige bg-white p-2 text-luxury-black shadow-2xl">
           {results.length > 0 ? results.map((page) => (
             <Link key={page.href} href={page.href} title={page.title} role="option" onClick={clearAndNavigate} className="block rounded-lg px-4 py-3 transition hover:bg-soft-beige hover:text-[#006db1]">
-              <span className="block text-[0.65rem] font-bold uppercase tracking-[.14em] text-warm-gray">{page.category}</span>
+              <span className="block text-[0.65rem] font-bold uppercase tracking-[.08em] text-warm-gray">{page.category}</span>
               <span className="mt-1 block text-sm font-bold">{page.title}</span>
             </Link>
           )) : <p className="px-4 py-3 text-sm text-warm-gray">Nenhuma página encontrada para “{query}”.</p>}

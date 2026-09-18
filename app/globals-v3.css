@@ -40,6 +40,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
 }
 
 body {
@@ -96,6 +97,7 @@ a[href][class*="rounded-lg"]:hover {
 
 .font-display {
   font-family: var(--font-satoshi), system-ui, sans-serif;
+  letter-spacing: -0.02em;
 }
 
 .font-mono {
@@ -499,7 +501,7 @@ a[href][class*="rounded-lg"]:hover {
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  padding: 0.35rem 1.25rem;
+  padding: 0.35rem 3.75rem 0.35rem 1.25rem;
   background: #000;
   border-bottom: 1px solid #fff3;
   color: var(--cream);
@@ -526,14 +528,18 @@ a[href][class*="rounded-lg"]:hover {
 }
 
 .store-promo-message {
+  max-width: min(100%, 46rem);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   animation: promo-message-in 260ms ease-out both;
 }
 
 .store-search {
+  display: flex;
   align-items: center;
   gap: 0.65rem;
-  width: min(100%, 34rem);
-  margin-left: auto;
+  width: 100%;
   border: 1px solid transparent;
   border-radius: 9999px;
   padding: 0.7rem 1rem;
@@ -564,7 +570,6 @@ a[href][class*="rounded-lg"]:hover {
 
 .store-icon-link {
   position: relative;
-  display: grid;
   height: 2.5rem;
   width: 2.5rem;
   place-items: center;
@@ -595,17 +600,31 @@ a[href][class*="rounded-lg"]:hover {
 .store-category-nav {
   position: relative;
   background: var(--gold);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.store-category-nav::-webkit-scrollbar {
+  display: none;
 }
 
 .store-category-link {
-  display: inline-flex;
+  flex-shrink: 0;
   align-items: center;
   gap: 0.35rem;
-  padding: 1rem 1.1rem;
+  padding: 0.9rem 0.75rem;
   color: var(--luxury-black);
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   font-weight: 650;
   transition: color 160ms ease, background 160ms ease;
+  white-space: nowrap;
+}
+
+@media (min-width: 1280px) {
+  .store-category-link {
+    padding: 1rem 1.1rem;
+    font-size: 0.95rem;
+  }
 }
 
 .store-category-link:hover {
@@ -661,7 +680,7 @@ a[href][class*="rounded-lg"]:hover {
   font-family: var(--font-jetbrains), monospace;
   font-size: 0.65rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
 }
 
 .store-menu-link, .store-mobile-link {
@@ -718,7 +737,7 @@ a[href][class*="rounded-lg"]:hover {
   font-size: clamp(2rem, 4vw, 3.4rem);
   font-weight: 750;
   line-height: 1;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.02em;
 }
 
 .store-product-card {
@@ -806,7 +825,7 @@ a[href][class*="rounded-lg"]:hover {
 }
 
 @media (max-width: 640px) {
-  .store-promo-bar { justify-content: space-between; gap: 0.5rem; font-size: 0.65rem; }
+  .store-promo-bar { justify-content: flex-start; gap: 0.5rem; padding-right: 3.25rem; font-size: 0.65rem; }
   .store-promo-bar a { white-space: nowrap; }
   .store-value-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .store-value-strip > div:nth-child(2) { border-right: 0; }

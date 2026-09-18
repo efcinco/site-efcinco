@@ -17,8 +17,8 @@ export default function IugisPage() {
         <div className="mx-auto grid max-w-[1440px] items-center gap-10 px-5 sm:px-10 lg:grid-cols-[1fr_.85fr]">
           <div>
             <Image src="/brand/iugis-logo.png" alt="Iugis" width={160} height={49} className="h-auto w-36" priority />
-            <p className="mt-8 font-mono text-xs font-bold uppercase tracking-[.16em] text-gold">Automações para e-commerce</p>
-            <h1 className="mt-4 max-w-3xl font-display text-5xl font-bold leading-[.92] tracking-[-.06em] sm:text-7xl">Venda e atenda no WhatsApp sem deixar oportunidades escaparem.</h1>
+            <p className="mt-8 font-mono text-xs font-bold uppercase tracking-[.08em] text-gold">Automações para e-commerce</p>
+            <h1 className="mt-4 max-w-3xl font-display text-5xl font-bold leading-[.92] tracking-[-.02em] sm:text-7xl">Venda e atenda no WhatsApp sem deixar oportunidades escaparem.</h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/70">A Iugis conecta sua operação às conversas que mais impactam receita e experiência: carrinho abandonado e pós-compra.</p>
           </div>
           <div className="relative mx-auto min-h-[28rem] w-full max-w-xl overflow-hidden">
@@ -35,8 +35,8 @@ export default function IugisPage() {
                   <Image src={service.image} alt={service.title} fill className={service.slug === "integracoes-ecommerce" ? "object-contain" : "object-cover"} sizes="(max-width: 1024px) 100vw, 50vw" />
                 </div>
                 <div className="flex flex-col justify-center p-8 sm:p-12">
-                  <p className="font-mono text-xs font-bold uppercase tracking-[.16em] text-gold-hover">Automação Iugis</p>
-                  <h2 className="mt-4 font-display text-4xl font-bold leading-none tracking-[-.05em] text-luxury-black">{service.title}</h2>
+                  <p className="font-mono text-xs font-bold uppercase tracking-[.08em] text-gold-hover">Automação Iugis</p>
+                  <h2 className="mt-4 font-display text-4xl font-bold leading-none tracking-[-.02em] text-luxury-black">{service.title}</h2>
                   <p className="mt-5 text-base leading-relaxed text-warm-gray">{service.description}</p>
                   <ul className="mt-7 grid gap-3 text-sm text-warm-gray">
                     {service.deliverables.slice(0, 3).map((item) => <li key={item} className="flex gap-2"><Check size={17} className="shrink-0 text-[#006db1]" />{item}</li>)}

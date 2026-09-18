@@ -31,7 +31,7 @@ export default function PageV3() {
         <div className="mx-auto max-w-[1440px] px-5 sm:px-10">
           <div className="store-section-heading">
             <div>
-              <p className="font-mono text-xs font-bold uppercase tracking-[.16em] text-gold-hover">Compre por objetivo</p>
+              <p className="font-mono text-xs font-bold uppercase tracking-[.08em] text-gold-hover">Compre por objetivo</p>
               <h2 className="mt-3">Qual resultado você quer colocar no carrinho?</h2>
             </div>
             <Link href="/#vitrine-servicos" title="Ver catálogo completo" className="hidden text-sm font-bold text-luxury-black underline underline-offset-4 transition hover:text-[#006db1] sm:block">Ver catálogo completo</Link>
@@ -50,11 +50,11 @@ export default function PageV3() {
           <div className="store-banner-card">
             <Image src="/images/chat-v2.jpg" alt="Automação de atendimento para e-commerce com Iugis" fill className="object-cover opacity-70" sizes="100vw" />
             <div className="store-banner-content text-white">
-              <p className="font-mono text-xs font-bold uppercase tracking-[.16em] text-gold">Coleção Iugis</p>
-              <h2 className="mt-4 font-display text-4xl font-bold leading-none tracking-[-.05em] sm:text-6xl">O pós-clique também vende.</h2>
+              <p className="font-mono text-xs font-bold uppercase tracking-[.08em] text-gold">Coleção Iugis</p>
+              <h2 className="mt-4 font-display text-4xl font-bold leading-none tracking-[-.02em] sm:text-6xl">O pós-clique também vende.</h2>
               <p className="mt-5 max-w-md text-base leading-relaxed text-white/80">Chatbot IA, recuperação de carrinho e rastreio proativo conectados à sua operação VTEX.</p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Link href="/automacoes-iugis" title="Conhecer a Iugis" className="rounded-full bg-gold px-6 py-3 text-sm font-bold text-luxury-black transition hover:bg-gold-hover">Conhecer a Iugis</Link>
+                <Link href="/automacoes-iugis" title="Conhecer a Iugis" className="rounded-full bg-white px-6 py-3 text-sm font-bold text-luxury-black transition hover:bg-cream">Conhecer a Iugis</Link>
                 <Link href="/iugis/planos" title="Ver planos" className="rounded-full border border-white/40 px-6 py-3 text-sm font-bold text-white transition hover:bg-white/10">Ver planos</Link>
               </div>
             </div>

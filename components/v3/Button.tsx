@@ -13,13 +13,13 @@ type ButtonProps = {
 
 const variants = {
   primary:
-    "bg-gold text-luxury-black hover:bg-gold-hover shadow-lg hover:shadow-xl transition-all duration-300",
+    "bg-[#006db1] text-white hover:bg-[#005a93] shadow-lg hover:shadow-xl transition-all duration-300",
   secondary:
     "bg-charcoal text-white hover:bg-warm-gray transition-all duration-300",
   ghost:
     "bg-transparent text-luxury-black hover:bg-soft-beige transition-all duration-300",
   outline:
-    "bg-transparent text-gold border border-gold hover:bg-gold hover:text-luxury-black transition-all duration-300",
+    "bg-transparent text-[#006db1] border border-[#006db1] hover:bg-[#006db1] hover:text-white transition-all duration-300",
 };
 
 const sizes = {
