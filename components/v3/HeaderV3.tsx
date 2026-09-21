@@ -145,6 +145,7 @@ export function HeaderV3() {
   const [openedOnPath, setOpenedOnPath] = useState<string | null>(null);
   const mobileOpen = openedOnPath === pathname;
   const [lockedMega, setLockedMega] = useState<MegaId | null>(null);
+  const [openSection, setOpenSection] = useState<string | null>(null);
   const [promoIndex, setPromoIndex] = useState(0);
   const { count, openCart } = useProposalCart();
   const { language, toggleLanguage } = useLanguage();
@@ -157,7 +158,14 @@ export function HeaderV3() {
     return () => window.clearInterval(timer);
   }, []);
 
-  const closeMobileMenu = () => setOpenedOnPath(null);
+  const closeMobileMenu = () => {
+    setOpenedOnPath(null);
+    setOpenSection(null);
+  };
+
+  const toggleSection = (id: string) => {
+    setOpenSection((current) => (current === id ? null : id));
+  };
 
   const closeMega = (id: MegaId) => {
     setLockedMega(id);
@@ -376,25 +384,19 @@ export function HeaderV3() {
         </nav>
 
         {mobileOpen && (
-          <nav className="border-t border-mist bg-white px-5 py-5 lg:hidden" aria-label="Menu móvel">
+          <nav className="max-h-[calc(100dvh-7.5rem)] overflow-y-auto border-t border-mist bg-white px-5 py-5 text-ink lg:hidden" aria-label="Menu móvel">
             <SiteSearch className="relative block" mobile onNavigate={() => closeMobileMenu()} />
-            <div className="mt-5 grid gap-1">
-              <Link href="/servicos-vtex" title="Todos os serviços VTEX" className="store-mobile-link font-bold" onClick={() => closeMobileMenu()}>Todos os serviços VTEX</Link>
-              {catalogLinks.map((link) => <StoreLink key={link.href} {...link} onNavigate={() => closeMobileMenu()} />)}
-              <Link href="/servicos-uappi" title="Todos os serviços Uappi" className="mt-4 store-mobile-link font-bold" onClick={() => closeMobileMenu()}>Todos os serviços Uappi</Link>
-              {uappiLinks.map((link) => <StoreLink key={link.href} {...link} onNavigate={() => closeMobileMenu()} />)}
-              <Link href="/servicos-wake" title="Todos os serviços Wake" className="mt-4 store-mobile-link font-bold" onClick={() => closeMobileMenu()}>Todos os serviços Wake</Link>
-              {wakeLinks.map((link) => <StoreLink key={link.href} {...link} onNavigate={() => closeMobileMenu()} />)}
-              <Link href="/automacoes-iugis" title="Todas as automações Iugis" className="mt-4 store-mobile-link font-bold" onClick={() => closeMobileMenu()}>Todas as automações Iugis</Link>
-              {iugisLinks.map((link) => <StoreLink key={link.href} {...link} onNavigate={() => closeMobileMenu()} />)}
-              <Link href="/tracking-e-medicao" title="Tracking e medição" className="mt-4 store-mobile-link font-bold" onClick={() => closeMobileMenu()}>Tracking e medição</Link>
-              {trackingLinks.map((link) => <StoreLink key={link.href} {...link} onNavigate={() => closeMobileMenu()} />)}
-              <Link href="/google-ads-e-meta-ads" title="Google Ads e Meta Ads" className="mt-4 store-mobile-link font-bold" onClick={() => closeMobileMenu()}>Google Ads e Meta Ads</Link>
-              {adsLinks.map((link) => <StoreLink key={link.href} {...link} onNavigate={() => closeMobileMenu()} />)}
-              <Link href="/cases" title="Cases" className="mt-4 store-mobile-link font-bold" onClick={() => closeMobileMenu()}>Cases</Link>
+            <div className="mt-3">
+              <MobileSection id="vtex" title="Serviços VTEX" href="/servicos-vtex" allLabel="Todos os serviços VTEX" links={catalogLinks} open={openSection === "vtex"} onToggle={toggleSection} onNavigate={closeMobileMenu} />
+              <MobileSection id="uappi" title="Serviços Uappi" href="/servicos-uappi" allLabel="Todos os serviços Uappi" links={uappiLinks} open={openSection === "uappi"} onToggle={toggleSection} onNavigate={closeMobileMenu} />
+              <MobileSection id="wake" title="Serviços Wake" href="/servicos-wake" allLabel="Todos os serviços Wake" links={wakeLinks} open={openSection === "wake"} onToggle={toggleSection} onNavigate={closeMobileMenu} />
+              <MobileSection id="iugis" title="Automações Iugis" href="/automacoes-iugis" allLabel="Todas as automações Iugis" links={iugisLinks} open={openSection === "iugis"} onToggle={toggleSection} onNavigate={closeMobileMenu} />
+              <MobileSection id="tracking" title="Tracking e medição" href="/tracking-e-medicao" allLabel="Ver tracking e medição" links={trackingLinks} open={openSection === "tracking"} onToggle={toggleSection} onNavigate={closeMobileMenu} />
+              <MobileSection id="ads" title="Google Ads e Meta Ads" href="/google-ads-e-meta-ads" allLabel="Ver Google Ads e Meta Ads" links={adsLinks} open={openSection === "ads"} onToggle={toggleSection} onNavigate={closeMobileMenu} />
+              <Link href="/cases" title="Cases" className="store-mobile-link font-bold" onClick={() => closeMobileMenu()}>Cases</Link>
               <Link href="/blog" title="Conteúdos" className="store-mobile-link font-bold" onClick={() => closeMobileMenu()}>Conteúdos</Link>
               <Link href="/sobre" title="Sobre a eFcinco" className="store-mobile-link font-bold" onClick={() => closeMobileMenu()}>Sobre a eFcinco</Link>
-              <Link href="/contato" title="Ver proposta" className="mt-3 rounded-full bg-brand px-5 py-3 text-center text-sm font-semibold text-white transition hover:bg-brand-hover" onClick={() => closeMobileMenu()}>Solicitar proposta{count > 0 ? ` (${count})` : ""}</Link>
+              <Link href="/contato" title="Ver proposta" className="mt-4 block rounded-full bg-brand px-5 py-3 text-center text-sm font-semibold text-white transition hover:bg-brand-hover" onClick={() => closeMobileMenu()}>Solicitar proposta{count > 0 ? ` (${count})` : ""}</Link>
             </div>
           </nav>
         )}
@@ -405,6 +407,49 @@ export function HeaderV3() {
 
 function StoreLink({ href, label, onNavigate }: { href: string; label: string; onNavigate?: () => void }) {
   return <Link href={href} title={label} onClick={onNavigate} className="store-menu-link">{label}<span>→</span></Link>;
+}
+
+function MobileSection({
+  id,
+  title,
+  href,
+  allLabel,
+  links,
+  open,
+  onToggle,
+  onNavigate,
+}: {
+  id: string;
+  title: string;
+  href: string;
+  allLabel: string;
+  links: { href: string; label: string }[];
+  open: boolean;
+  onToggle: (id: string) => void;
+  onNavigate: () => void;
+}) {
+  const panelId = `mobile-section-${id}`;
+
+  return (
+    <div className="border-b border-mist">
+      <button
+        type="button"
+        className="store-mobile-link w-full font-bold"
+        aria-expanded={open}
+        aria-controls={panelId}
+        onClick={() => onToggle(id)}
+      >
+        {title}
+        <ChevronDown size={16} aria-hidden="true" className={`shrink-0 transition-transform ${open ? "rotate-180" : ""}`} />
+      </button>
+      {open && (
+        <div id={panelId} className="pb-2 pl-2">
+          <StoreLink href={href} label={allLabel} onNavigate={onNavigate} />
+          {links.map((link) => <StoreLink key={link.href} {...link} onNavigate={onNavigate} />)}
+        </div>
+      )}
+    </div>
+  );
 }
 
 function normalizeSearchText(value: string) {
