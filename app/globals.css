@@ -451,12 +451,6 @@ a[href][class*="rounded-lg"]:hover {
 .store-category-nav {
   position: relative;
   background: var(--steel);
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-
-.store-category-nav::-webkit-scrollbar {
-  display: none;
 }
 
 .store-category-link {

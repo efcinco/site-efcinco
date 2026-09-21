@@ -225,7 +225,7 @@ export function HeaderV3() {
         </div>
 
         <nav className="store-category-nav hidden lg:flex" aria-label="Categorias da loja">
-          <div className="mx-auto flex w-full max-w-360 items-center overflow-x-auto px-6 xl:px-10">
+          <div className="mx-auto flex w-full max-w-360 items-center px-6 xl:px-10">
             <div
               className={`group/vtex relative${lockedMega === "vtex" ? " is-mega-locked" : ""}`}
               onMouseLeave={() => unlockMega("vtex")}
